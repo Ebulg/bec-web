@@ -3,7 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){
+  var CODE = 'KA12SD123J238.123';
+  var auth = sessionStorage.getItem('bec_access') || localStorage.getItem('bec_access');
+  if (auth !== CODE) {
+    window.location.replace('index.html');
+  }
+})();
+</script>
+<link rel="stylesheet" href="./toolbar.css">
 <script src="./support.js"></script>
+<script src="./toolbar.js" defer></script>
 </head>
 <body>
 <x-dc>
