@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bernal's English Course — Acceso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;0,8..60,900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue: oklch(0.50 0.17 258);
+  --blue-hover: oklch(0.42 0.15 258);
+  --navy: oklch(0.36 0.11 258);
+  --warm: #d9d6cf;
+  --warm-card: #fffdf8;
+  --ink: #1f1d1a;
+  --muted: #8a8377;
+  --danger: oklch(0.55 0.22 25);
+  --border: #e3ded6;
+}
+html,body{
+  min-height:100%;
+  height:100%;
+  background:var(--warm);
+  font-family:'Libre Franklin',-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--ink);
+  overflow:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(circle at 18% 22%, oklch(0.50 0.17 258 / 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 82% 78%, oklch(0.36 0.11 258 / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 80%);
+  pointer-events:none;
+}
+.page-wrap{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  transition:opacity .5s ease, transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.page-wrap.exiting{
+  opacity:0;
+  transform:scale(0.97) translateY(-16px);
+  pointer-events:none;
+}
+.access-card{
+  position:relative;
+  background:var(--warm-card);
+  border-radius:28px;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.04),
+    0 24px 64px rgba(28,24,18,.14),
+    0 0 0 1px rgba(0,0,0,.04);
+  width:100%;
+  max-width:460px;
+  padding:52px 46px 44px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  animation:cardEntrance .6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.brand-stars{
+  display:flex;
+  gap:10px;
+  color:var(--blue);
+  font-size:22px;
+  margin-bottom:18px;
+  user-select:none;
+}
+.brand-title{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-weight:900;
+  font-size:32px;
+  line-height:1.12;
+  text-align:center;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+  margin-bottom:6px;
+}
+.brand-subtitle{
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--navy);
+  margin-bottom:28px;
+}
+.gold-line{
+  width:52px;
+  height:3px;
+  background:var(--blue);
+  border-radius:2px;
+  margin-bottom:34px;
+}
+.input-label{
+  align-self:flex-start;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.input-container{
+  position:relative;
+  width:100%;
+  margin-bottom:8px;
+}
+.input-field{
+  width:100%;
+  padding:16px 48px 16px 18px;
+  border:2px solid var(--border);
+  border-radius:14px;
+  font-family:'Libre Franklin',monospace,sans-serif;
+  font-size:15px;
+  font-weight:600;
+  color:var(--ink);
+  background:#faf7f0;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s, background-color .2s;
+  letter-spacing:.04em;
+}
+.input-field::placeholder{
+  color:#bbb4a8;
+  font-weight:400;
+  letter-spacing:0;
+  font-family:'Libre Franklin',sans-serif;
+}
+.input-field:focus{
+  border-color:var(--blue);
+  background:#fff;
+  box-shadow:0 0 0 4px oklch(0.50 0.17 258 / 0.14);
+}
+.input-field.shake{
+  border-color:var(--danger);
+  background:#fff5f4;
+  box-shadow:0 0 0 4px oklch(0.55 0.22 25 / 0.12);
+  animation:shake .4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+.eye-toggle{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:6px;
+  color:var(--muted);
+  transition:color .2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+}
+.eye-toggle:hover{
+  color:var(--blue);
+}
+.error-msg{
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--danger);
+  min-height:22px;
+  margin-bottom:14px;
+  align-self:flex-start;
+  opacity:0;
+  transform:translateY(-2px);
+  transition:opacity .2s, transform .2s;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.error-msg.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.btn-enter{
+  width:100%;
+  padding:16px 24px;
+  background:var(--blue);
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  font-family:'Libre Franklin',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.05em;
+  cursor:pointer;
+  transition:background .2s, transform .15s, box-shadow .2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  box-shadow:0 4px 16px oklch(0.50 0.17 258 / 0.25);
+}
+.btn-enter:hover{
+  background:var(--blue-hover);
+  box-shadow:0 8px 26px oklch(0.50 0.17 258 / 0.35);
+}
+.btn-enter:active{
+  transform:scale(0.985);
+}
+.card-note{
+  font-size:12px;
+  color:var(--muted);
+  text-align:center;
+  margin-top:28px;
+  line-height:1.55;
+}
+.badge-secure{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-size:11px;
+  font-weight:600;
+  color:#736d63;
+  margin-top:20px;
+  padding:4px 12px;
+  background:#ede8df;
+  border-radius:100px;
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  15%{transform:translateX(-8px)}
+  30%{transform:translateX(8px)}
+  45%{transform:translateX(-6px)}
+  60%{transform:translateX(6px)}
+  75%{transform:translateX(-3px)}
+  90%{transform:translateX(3px)}
+}
+@keyframes cardEntrance{
+  from{opacity:0;transform:translateY(24px) scale(0.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap" id="accessWrap">
+  <div class="access-card">
+    <div class="brand-stars">★ ★ ★</div>
+    <h1 class="brand-title">Bernal's<br>English Course</h1>
+    <div class="brand-subtitle">Luis Bernal Gallardo</div>
+    <div class="gold-line"></div>
+
+    <label class="input-label" for="accessCode">Código de Acceso</label>
+    <div class="input-container">
+      <input
+        type="password"
+        id="accessCode"
+        class="input-field"
+        placeholder="Ingresa tu código de acceso..."
+        autocomplete="off"
+        spellcheck="false"
+        maxlength="40"
+      >
+      <button class="eye-toggle" id="eyeToggle" type="button" aria-label="Mostrar código">
+        <svg id="eyeSvg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </button>
+    </div>
+
+    <div class="error-msg" id="errorMsg">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <span>Código incorrecto. Verifica e intenta nuevamente.</span>
+    </div>
+
+    <button class="btn-enter" id="enterBtn" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      Entrar a la Biblioteca
+    </button>
+
+    <div class="badge-secure">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      Acceso Exclusivo Autorizado
+    </div>
+
+    <p class="card-note">
+      Introduce el código asignado para desbloquear la colección de libros disponibles.
+    </p>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  const VALID_CODE = 'KA12SD123J238.123';
+  const STORAGE_KEY = 'bec_access';
+
+  // Si ya tiene sesión activa válida, redirigir directo al menú
+  if (sessionStorage.getItem(STORAGE_KEY) === VALID_CODE) {
+    window.location.replace('menu.html');
+    return;
+  }
+
+  const input = document.getElementById('accessCode');
+  const btn = document.getElementById('enterBtn');
+  const errorMsg = document.getElementById('errorMsg');
+  const eyeBtn = document.getElementById('eyeToggle');
+  const eyeSvg = document.getElementById('eyeSvg');
+  const wrap = document.getElementById('accessWrap');
+
+  // Asegurar que el campo NO tenga texto precargado
+  input.value = '';
+
+  // Alternar ver/ocultar contraseña
+  eyeBtn.addEventListener('click', function(){
+    const isPassword = input.type === 'password';
+    input.type = isPassword ? 'text' : 'password';
+    eyeSvg.innerHTML = isPassword
+      ? '<path d="M17.94 17.94A10 10 0 0 1 12 20c-7 0-11-8-11-8a18 18 0 0 1 5-6"></path><path d="M9.9 4.24A9 9 0 0 1 12 4c7 0 11 8 11 8a18 18 0 0 1-2 3"></path><line x1="1" y1="1" x2="23" y2="23"></line>'
+      : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+  });
+
+  function validateAndEnter(){
+    const val = input.value.trim();
+    input.classList.remove('shake');
+    errorMsg.classList.remove('visible');
+
+    if (val === VALID_CODE) {
+      // Guardar autorización
+      sessionStorage.setItem(STORAGE_KEY, VALID_CODE);
+      localStorage.setItem(STORAGE_KEY, VALID_CODE);
+
+      // Transición animada de salida
+      wrap.classList.add('exiting');
+      setTimeout(function(){
+        window.location.replace('menu.html');
+      }, 400);
+    } else {
+      // Forzar reflow para reiniciar animación shake
+      void input.offsetWidth;
+      input.classList.add('shake');
+      errorMsg.classList.add('visible');
+      input.focus();
+      input.select();
+    }
+  }
+
+  btn.addEventListener('click', validateAndEnter);
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') {
+      validateAndEnter();
+    }
+  });
+
+  // Focus inicial en el input
+  setTimeout(function(){
+    input.focus();
+  }, 150);
+})();
+</script>
+</body>
+</html>

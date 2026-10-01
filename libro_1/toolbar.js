@@ -282,7 +282,7 @@
     // C. Regresar al menú de libros
     btnReturn.addEventListener('click', function(e) {
       e.stopPropagation();
-      window.location.href = 'menu.html';
+      window.location.href = '../menu.html';
     });
 
     // D. Cambiar a 1 Hoja
