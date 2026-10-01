@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
   try {
     let reqPath = decodeURIComponent(req.url.split('?')[0]);
     if (reqPath === '/' || reqPath === '') {
-      res.writeHead(302, { 'Location': "/Bernal's English Course.dc.html" });
+      res.writeHead(302, { 'Location': "/index.html" });
       res.end();
       return;
     }
@@ -64,7 +64,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  const url = `http://localhost:${PORT}/Bernal's%20English%20Course.dc.html`;
+  const url = `http://localhost:${PORT}/`;
   console.log(`\n======================================================`);
   console.log(`  Servidor iniciado con éxito.`);
   console.log(`  Abre en tu navegador:`);
