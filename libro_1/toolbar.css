@@ -513,8 +513,48 @@
   box-shadow: none;
 }
 
+.bec-modal-tip {
+  margin-top: 14px;
+  padding: 11px 15px;
+  background: #f7f4ee;
+  border-left: 3.5px solid var(--bec-blue);
+  border-radius: 0 10px 10px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #575147;
+}
+
+.bec-modal-tip strong {
+  color: #211e1a;
+}
+
+.bec-modal-tip ul {
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.bec-modal-tip li {
+  margin-bottom: 3px;
+}
+
+/* Portal de impresión aislado (oculto en pantalla) */
+#becPrintPortal {
+  display: none;
+}
+
 /* ─── OCULTAR EN IMPRESIÓN (PRINT STYLES) ─── */
 @media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 0 !important;
+  }
+  html, body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
   .bec-fab-root,
   .bec-modal-backdrop,
   .bec-fab-pill {

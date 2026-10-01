@@ -31,6 +31,22 @@
   var currentView = localStorage.getItem('bec_book_view') || 'Spread'; // 'Spread' (2 hojas) o 'Single' (1 hoja)
   var TOTAL_PAGES = 204; // Total de páginas de First Book
 
+  var PAGE_TITLES = {
+    1: 'Portada (Cover)',
+    2: 'Página de Título',
+    3: 'Introducción (Prólogo)',
+    4: 'Instrucciones de Estudio',
+    5: 'Lección 1: Inicio (A Doll, A Car...) [Hoja 1]',
+    6: 'Lección 1: Vocabulario (A Spoon, A Fork...) [Hoja 2]',
+    7: 'Lección 1: Animales (A Cow, A Horse...) [Hoja 3]',
+    8: 'Lección 1: Singular/Plural (A Peach...) [Hoja 4]',
+    9: 'Lección 1: Plantas y Frutas (A Plant, Plants) [Hoja 5 / orig 10]',
+    10: 'Lección 1: Escritura (Let\'s write a sentence) [Hoja 6 / orig 10]',
+    11: 'Lección 1: Forma Interrogativa [Hoja 7 / orig 11]',
+    12: 'Lección 1: El Alfabeto (ABCDEFG) [Hoja 8 / orig 12]',
+    13: 'Lección 2: Inicio (Pronombres y Verbo To Be) [Hoja 9 / orig 13]'
+  };
+
   // ══════════════════════════════════════════════════════
   // 3. INYECCIÓN DEL DOM AL CARGAR
   // ══════════════════════════════════════════════════════
@@ -179,10 +195,20 @@
 
           <!-- Chips de atajo -->
           <div class="bec-quick-chips">
-            <button class="bec-chip" type="button" data-range="1-8">★ Lección 1 (1-8)</button>
-            <button class="bec-chip" type="button" data-range="1-20">Primeras 20 páginas</button>
-            <button class="bec-chip" type="button" data-range="1-50">Primeras 50 páginas</button>
+            <button class="bec-chip" type="button" data-range="5-9">★ Lección 1: Hasta Plantas (5-9)</button>
+            <button class="bec-chip" type="button" data-range="5-10">Lección 1: Con Escritura (5-10)</button>
+            <button class="bec-chip" type="button" data-range="5-12">Lección 1: Completa (5-12)</button>
+            <button class="bec-chip" type="button" data-range="1-4">Introducción (1-4)</button>
             <button class="bec-chip" type="button" data-range="1-204">Todo el libro (1-204)</button>
+          </div>
+
+          <div class="bec-modal-tip">
+            <strong>💡 Referencia rápida de páginas:</strong>
+            <ul>
+              <li><strong>Pág. 5:</strong> Primera página de la Lección 1 (Hoja 1).</li>
+              <li><strong>Pág. 9:</strong> Hoja 5 donde están las <strong>Plantas y Frutas</strong> (orig 10). <em>Si solo quieres descargar hasta aquí, usa el rango <strong>5-9</strong>.</em></li>
+              <li><strong>Pág. 10:</strong> Hoja 6 con los ejercicios de escritura (Let's write a sentence).</li>
+            </ul>
           </div>
 
           <!-- Feedback de cuántas páginas están seleccionadas -->
@@ -274,9 +300,7 @@
     // F. Descargar PDF Completo (Ctrl + P)
     btnDownloadAll.addEventListener('click', function(e) {
       e.stopPropagation();
-      // Eliminar cualquier filtro previo de impresión
-      removePrintFilter();
-      window.print();
+      printAllPages();
     });
 
     // G. Abrir Modal de Descarga Selectiva
@@ -316,7 +340,7 @@
       var val = pageInput.value.trim();
       if (!val) {
         feedback.className = 'bec-selection-feedback is-empty';
-        feedbackText.textContent = 'Escribe el rango de páginas a descargar';
+        feedbackText.innerHTML = 'Escribe el rango de páginas a descargar';
         modalConfirm.disabled = true;
         return [];
       }
@@ -324,13 +348,25 @@
       var pages = parsePageRange(val);
       if (pages.length === 0) {
         feedback.className = 'bec-selection-feedback is-error';
-        feedbackText.textContent = 'Ninguna página válida encontrada en el rango ingresado.';
+        feedbackText.innerHTML = 'Ninguna página válida encontrada en el rango ingresado.';
         modalConfirm.disabled = true;
         return [];
       }
 
+      var firstPage = pages[0];
+      var lastPage = pages[pages.length - 1];
+      var startDesc = PAGE_TITLES[firstPage] || ('Pág. ' + firstPage);
+      var endDesc = PAGE_TITLES[lastPage] || ('Pág. ' + lastPage);
+
+      var hint = '';
+      if (lastPage === 10 && pages.indexOf(9) !== -1) {
+        hint = '<span style="display:block;margin-top:5px;font-size:12px;color:#b45309;line-height:1.4;">⚠️ <strong>Atención:</strong> La hoja de ilustraciones con <strong>Plantas y Frutas</strong> es la <strong>Pág. 9</strong>. La <strong>Pág. 10</strong> incluye ejercicios de escritura. Si solo deseas hasta las plantas, cambia el rango a <strong>5-9</strong>.</span>';
+      } else if (lastPage === 9 && firstPage === 5) {
+        hint = '<span style="display:block;margin-top:5px;font-size:12px;color:#15803d;line-height:1.4;">✨ Rango exacto de vocabulario ilustrado de la Lección 1 (termina en Plantas).</span>';
+      }
+
       feedback.className = 'bec-selection-feedback is-valid';
-      feedbackText.textContent = '✓ ' + pages.length + ' hoja' + (pages.length === 1 ? '' : 's') + ' seleccionada' + (pages.length === 1 ? '' : 's') + ' (Pág. ' + (pages.length <= 8 ? pages.join(', ') : pages.slice(0, 6).join(', ') + '… ' + pages[pages.length - 1]) + ')';
+      feedbackText.innerHTML = '<div><strong>✓ ' + pages.length + ' hoja' + (pages.length === 1 ? '' : 's') + ' seleccionada' + (pages.length === 1 ? '' : 's') + '</strong> <span style=\"opacity:.85\">(' + startDesc + ' → ' + endDesc + ')</span>' + hint + '</div>';
       modalConfirm.disabled = false;
       return pages;
     }
@@ -411,27 +447,62 @@
     return Array.from(set).sort(function(a, b) { return a - b; });
   }
 
+  function printAllPages() {
+    var allPageElements = document.querySelectorAll('[data-page]');
+    var allNums = [];
+    for (var i = 1; i <= allPageElements.length; i++) allNums.push(i);
+    printSelectedPages(allNums);
+  }
+
   function printSelectedPages(pageNumbers) {
     var pageSet = new Set(pageNumbers);
-    var pageElements = document.querySelectorAll('[data-page]');
+    var allPageElements = document.querySelectorAll('[data-page]');
 
-    // Si aún no están cargadas o hay discrepancia, usar fallback
-    if (!pageElements.length) {
+    if (!allPageElements.length) {
       window.print();
       return;
     }
 
-    // Marcar los elementos seleccionados
-    pageElements.forEach(function(el, idx) {
+    // 1. Obtener o crear portal de impresión aislado
+    var portal = document.getElementById('becPrintPortal');
+    if (!portal) {
+      portal = document.createElement('div');
+      portal.id = 'becPrintPortal';
+      document.body.appendChild(portal);
+    }
+    portal.innerHTML = '';
+
+    // 2. Filtrar y clonar ÚNICAMENTE las páginas seleccionadas
+    var count = 0;
+    allPageElements.forEach(function(origEl, idx) {
       var pageNum = idx + 1; // 1-indexado
       if (pageSet.has(pageNum)) {
-        el.classList.add('bec-selected-page');
-      } else {
-        el.classList.remove('bec-selected-page');
+        count++;
+        var clone = origEl.cloneNode(true);
+        clone.className = (clone.className || '') + ' bec-portal-page';
+        // Establecer dimensiones A4 exactas para eliminar cualquier overflow
+        clone.style.width = '210mm';
+        clone.style.height = '297mm';
+        clone.style.maxHeight = '297mm';
+        clone.style.margin = '0';
+        clone.style.padding = '0';
+        clone.style.boxShadow = 'none';
+        clone.style.overflow = 'hidden';
+        clone.style.boxSizing = 'border-box';
+        clone.style.position = 'relative';
+        portal.appendChild(clone);
       }
     });
 
-    // Inyectar CSS de impresión selectiva
+    if (count === 0) return;
+
+    // 3. Marcar la última página para que NO rompa página después de ella (evita la hoja blanca)
+    var cloned = portal.querySelectorAll('.bec-portal-page');
+    if (cloned.length > 0) {
+      cloned[cloned.length - 1].classList.add('bec-portal-last');
+    }
+
+    // 4. Inyectar estilos dedicados al portal de impresión
     var style = document.getElementById('becSelectivePrintStyle');
     if (!style) {
       style = document.createElement('style');
@@ -441,47 +512,77 @@
 
     style.textContent = `
       @media print {
-        [data-desk] { padding: 0 !important; gap: 0 !important; display: block !important; zoom: 1 !important; }
-        [data-row] { display: block !important; gap: 0 !important; }
-        [data-ph], [data-scan], [data-noprint] { display: none !important; }
-        [data-page] { display: none !important; }
-        [data-page].bec-selected-page {
+        @page {
+          size: 210mm 297mm;
+          margin: 0 !important;
+        }
+        html, body {
+          background: #fff !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          height: auto !important;
+          min-height: 0 !important;
+        }
+        /* Ocultar todo el árbol de la aplicación normal */
+        #dc-root,
+        .sc-host,
+        [data-desk],
+        .bec-fab-root,
+        .bec-modal-backdrop {
+          display: none !important;
+        }
+        /* Mostrar ÚNICAMENTE el portal de páginas seleccionadas */
+        #becPrintPortal {
           display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        #becPrintPortal .bec-portal-page {
+          display: block !important;
+          width: 210mm !important;
+          height: 297mm !important;
+          max-height: 297mm !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          box-shadow: none !important;
           break-after: page !important;
           page-break-after: always !important;
-          margin: 0 !important;
-          box-shadow: none !important;
+          overflow: hidden !important;
+          box-sizing: border-box !important;
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+        /* La última hoja NO debe saltar página para eliminar la hoja blanca final */
+        #becPrintPortal .bec-portal-page.bec-portal-last {
+          break-after: avoid !important;
+          page-break-after: avoid !important;
         }
       }
     `;
 
-    // Disparar diálogo de impresión
+    // 5. Invocar el diálogo de impresión
     setTimeout(function() {
       window.print();
 
-      // Limpiar al terminar
+      // 6. Limpieza garantizada después de imprimir
       var cleanup = function() {
+        if (portal) portal.innerHTML = '';
         if (style && style.parentNode) style.parentNode.removeChild(style);
-        document.querySelectorAll('.bec-selected-page').forEach(function(el) {
-          el.classList.remove('bec-selected-page');
-        });
         window.removeEventListener('afterprint', cleanup);
       };
 
       window.addEventListener('afterprint', cleanup);
-      // Fallback por si afterprint no dispara
-      setTimeout(cleanup, 60000);
+      setTimeout(cleanup, 20000);
     }, 150);
   }
 
   function removePrintFilter() {
+    var portal = document.getElementById('becPrintPortal');
+    if (portal) portal.innerHTML = '';
     var style = document.getElementById('becSelectivePrintStyle');
     if (style && style.parentNode) {
       style.parentNode.removeChild(style);
     }
-    document.querySelectorAll('.bec-selected-page').forEach(function(el) {
-      el.classList.remove('bec-selected-page');
-    });
   }
 
   // ══════════════════════════════════════════════════════

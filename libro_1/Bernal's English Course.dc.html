@@ -35,6 +35,8 @@ a{color:oklch(0.36 0.11 258);}a:hover{color:oklch(0.5 0.17 258);}
  [data-row]{display:block!important;gap:0!important;}
  [data-ph],[data-scan],[data-noprint]{display:none!important;}
  [data-page]{box-shadow:none!important;margin:0!important;break-after:page;page-break-after:always;outline:none!important;}
+ [data-row]:last-of-type [data-page]:last-of-type,
+ [data-page]:last-of-type {break-after:avoid!important;page-break-after:avoid!important;}
 }
 </style>
 </helmet>
