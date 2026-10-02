@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bernal's English Course — Acceso</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,6 +240,66 @@ body::before{
 @keyframes cardEntrance{
   from{opacity:0;transform:translateY(24px) scale(0.98)}
   to{opacity:1;transform:translateY(0) scale(1)}
+}
+@media (max-width:600px){
+  html,body{
+    height:auto;
+    min-height:100%;
+    min-height:100dvh;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+  .page-wrap{
+    position:relative;
+    min-height:100vh;
+    min-height:100dvh;
+    padding:
+      max(16px, env(safe-area-inset-top))
+      max(14px, env(safe-area-inset-right))
+      max(16px, env(safe-area-inset-bottom))
+      max(14px, env(safe-area-inset-left));
+  }
+  .access-card{
+    max-width:420px;
+    padding:34px 22px 28px;
+    border-radius:22px;
+  }
+  .brand-stars{font-size:19px;margin-bottom:13px}
+  .brand-title{font-size:clamp(27px,8vw,32px)}
+  .brand-subtitle{
+    font-size:10px;
+    letter-spacing:.19em;
+    margin-bottom:21px;
+    text-align:center;
+  }
+  .gold-line{margin-bottom:27px}
+  .input-field{
+    min-height:54px;
+    padding:14px 50px 14px 16px;
+    font-size:16px;
+  }
+  .eye-toggle{
+    right:8px;
+    width:44px;
+    height:44px;
+  }
+  .btn-enter{min-height:54px;padding:14px 18px}
+  .error-msg{line-height:1.4;margin-bottom:10px}
+  .badge-secure{margin-top:17px}
+  .card-note{margin-top:20px}
+}
+@media (max-height:700px) and (max-width:600px){
+  .access-card{padding-top:25px;padding-bottom:23px}
+  .brand-stars{margin-bottom:8px}
+  .brand-subtitle{margin-bottom:14px}
+  .gold-line{margin-bottom:19px}
+  .card-note{margin-top:14px}
+}
+@media (hover:none){
+  .btn-enter:hover{background:var(--blue);box-shadow:0 4px 16px oklch(0.50 0.17 258 / 0.25)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 </style>
 </head>

@@ -2,11 +2,10 @@
  * BERNAL'S ENGLISH COURSE — FLOATING TOOLBAR & CONTROLS
  * Provides:
  * 1. Access guard (redirects if not authenticated with code KA12SD123J238.123)
- * 2. Morphing FAB toolbar button (converts from icon to horizontal toolbar)
+ * 2. Compact FAB toolbar button (opens upward as an icon rail)
  * 3. 1 Hoja / 2 Hojas view switcher (Single vs Spread)
- * 4. Full PDF download (Ctrl + P simulation)
- * 5. Selective download modal (page ranges / specific sheets)
- * 6. Return to menu button
+ * 4. Selective download modal (page ranges / specific sheets)
+ * 5. Return to menu button
  */
 
 (function(){
@@ -19,7 +18,7 @@
   var STORAGE_KEY = 'bec_access';
   var auth = sessionStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY);
   if (auth !== VALID_CODE) {
-    window.location.replace('index.html');
+    window.location.replace('../index.html');
     return;
   }
   // Sincronizar sesión
@@ -28,7 +27,9 @@
   // ══════════════════════════════════════════════════════
   // 2. ESTADO Y CONFIGURACIÓN
   // ══════════════════════════════════════════════════════
-  var currentView = localStorage.getItem('bec_book_view') || 'Spread'; // 'Spread' (2 hojas) o 'Single' (1 hoja)
+  var mobileViewQuery = window.matchMedia('(max-width: 900px)');
+  var preferredView = localStorage.getItem('bec_book_view') || 'Spread';
+  var currentView = mobileViewQuery.matches ? 'Single' : preferredView;
   var TOTAL_PAGES = 204; // Total de páginas de First Book
 
   var PAGE_TITLES = {
@@ -63,7 +64,7 @@
       <div id="becFabPill" class="bec-fab-pill is-collapsed" title="Herramientas de lectura">
         
         <!-- Icono cuando está colapsado -->
-        <div class="bec-fab-trigger-icon" id="becFabIcon">
+        <button class="bec-fab-trigger-icon" id="becFabIcon" type="button" aria-label="Abrir herramientas del libro" aria-expanded="false" aria-controls="becToolbarContent">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" y1="21" x2="4" y2="14"></line>
             <line x1="4" y1="10" x2="4" y2="3"></line>
@@ -75,64 +76,50 @@
             <line x1="9" y1="8" x2="15" y2="8"></line>
             <line x1="17" y1="16" x2="23" y2="16"></line>
           </svg>
-        </div>
+        </button>
         <div class="bec-fab-tooltip">Herramientas del Libro</div>
 
-        <!-- Contenido cuando está desplegado como barra -->
+        <!-- Contenido: rail vertical compacto de iconos -->
         <div class="bec-toolbar-content" id="becToolbarContent">
           
           <!-- Botón Regresar al Menú -->
-          <button class="bec-tool-btn bec-btn-return" id="becBtnReturn" type="button" title="Volver a la Biblioteca de Libros">
+          <button class="bec-tool-btn bec-btn-return" id="becBtnReturn" type="button" title="Volver a la Biblioteca de Libros" aria-label="Volver a la biblioteca">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M19 12H5"></path>
               <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
-            <span>Menú</span>
           </button>
 
           <div class="bec-divider"></div>
 
           <!-- Selector de Vista: 1 Hoja / 2 Hojas -->
-          <div class="bec-view-segmented" title="Modo de visualización de páginas">
-            <button class="bec-view-btn" id="becBtnView1" type="button">
+          <div class="bec-view-segmented" aria-label="Modo de visualización de páginas">
+            <button class="bec-view-btn" id="becBtnView1" type="button" title="Ver una hoja" aria-label="Ver una hoja">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
               </svg>
-              <span>1 Hoja</span>
             </button>
-            <button class="bec-view-btn" id="becBtnView2" type="button">
+            <button class="bec-view-btn" id="becBtnView2" type="button" title="Ver dos hojas" aria-label="Ver dos hojas">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
-              <span>2 Hojas</span>
             </button>
           </div>
 
           <div class="bec-divider"></div>
 
-          <!-- Botón Descargar PDF Completo -->
-          <button class="bec-tool-btn" id="becBtnDownloadAll" type="button" title="Descargar libro completo en PDF (Ctrl + P)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>Descargar PDF</span>
-          </button>
-
           <!-- Botón Descarga Selectiva -->
-          <button class="bec-tool-btn" id="becBtnDownloadSelective" type="button" title="Descargar u organizar hojas específicas en PDF">
+          <button class="bec-tool-btn" id="becBtnDownloadSelective" type="button" title="Descargar hojas específicas" aria-label="Descargar hojas específicas">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
             </svg>
-            <span>Descarga Selectiva</span>
           </button>
 
           <div class="bec-divider"></div>
 
           <!-- Botón Cerrar / Contraer Barra -->
-          <button class="bec-tool-btn bec-btn-close" id="becBtnCloseBar" type="button" title="Ocultar barra de herramientas">
+          <button class="bec-tool-btn bec-btn-close" id="becBtnCloseBar" type="button" title="Ocultar herramientas" aria-label="Ocultar herramientas">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -248,11 +235,11 @@
   // ══════════════════════════════════════════════════════
   function setupEvents() {
     var pill = document.getElementById('becFabPill');
+    var fabTrigger = document.getElementById('becFabIcon');
     var btnClose = document.getElementById('becBtnCloseBar');
     var btnReturn = document.getElementById('becBtnReturn');
     var btnView1 = document.getElementById('becBtnView1');
     var btnView2 = document.getElementById('becBtnView2');
-    var btnDownloadAll = document.getElementById('becBtnDownloadAll');
     var btnDownloadSel = document.getElementById('becBtnDownloadSelective');
 
     // Modal elements
@@ -264,19 +251,29 @@
     var feedback = document.getElementById('becSelectionFeedback');
     var feedbackText = document.getElementById('becFeedbackText');
 
-    // A. Abrir/Expandir barra al hacer click en el botón colapsado
-    pill.addEventListener('click', function(e) {
-      if (pill.classList.contains('is-collapsed')) {
-        pill.classList.remove('is-collapsed');
-        pill.classList.add('is-expanded');
-      }
+    function openToolbar() {
+      pill.classList.remove('is-collapsed');
+      pill.classList.add('is-expanded');
+      fabTrigger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeToolbar(restoreFocus) {
+      pill.classList.remove('is-expanded');
+      pill.classList.add('is-collapsed');
+      fabTrigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) fabTrigger.focus();
+    }
+
+    // A. Abrir el panel vertical desde el botón flotante
+    fabTrigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openToolbar();
     });
 
     // B. Cerrar/Contraer barra al hacer click en la X
     btnClose.addEventListener('click', function(e) {
       e.stopPropagation();
-      pill.classList.remove('is-expanded');
-      pill.classList.add('is-collapsed');
+      closeToolbar(true);
     });
 
     // C. Regresar al menú de libros
@@ -297,19 +294,13 @@
       applyView('Spread');
     });
 
-    // F. Descargar PDF Completo (Ctrl + P)
-    btnDownloadAll.addEventListener('click', function(e) {
-      e.stopPropagation();
-      printAllPages();
-    });
-
-    // G. Abrir Modal de Descarga Selectiva
+    // F. Abrir Modal de Descarga Selectiva
     btnDownloadSel.addEventListener('click', function(e) {
       e.stopPropagation();
       openSelectiveModal();
     });
 
-    // H. Cerrar Modal
+    // G. Cerrar Modal
     function closeModal() {
       modal.classList.remove('is-visible');
     }
@@ -321,10 +312,18 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && modal.classList.contains('is-visible')) {
         closeModal();
+      } else if (e.key === 'Escape' && pill.classList.contains('is-expanded')) {
+        closeToolbar(true);
       }
     });
 
-    // I. Chips de selección rápida
+    document.addEventListener('pointerdown', function(e) {
+      if (pill.classList.contains('is-expanded') && !pill.contains(e.target)) {
+        closeToolbar(false);
+      }
+    });
+
+    // H. Chips de selección rápida
     document.querySelectorAll('.bec-chip').forEach(function(chip) {
       chip.addEventListener('click', function() {
         var range = chip.getAttribute('data-range');
@@ -333,7 +332,7 @@
       });
     });
 
-    // J. Validación en tiempo real del input de páginas
+    // I. Validación en tiempo real del input de páginas
     pageInput.addEventListener('input', validatePages);
 
     function validatePages() {
@@ -371,7 +370,7 @@
       return pages;
     }
 
-    // K. Confirmar Descarga Selectiva e Imprimir
+    // J. Confirmar Descarga Selectiva e Imprimir
     modalConfirm.addEventListener('click', function() {
       var selected = validatePages();
       if (!selected.length) return;
@@ -384,9 +383,13 @@
   // ══════════════════════════════════════════════════════
   // 5. CAMBIO DINÁMICO DE VISTA (1 Hoja vs 2 Hojas)
   // ══════════════════════════════════════════════════════
-  function applyView(newView) {
+  function applyView(newView, persistPreference) {
+    if (mobileViewQuery.matches && newView === 'Spread') return;
     currentView = newView;
-    localStorage.setItem('bec_book_view', currentView);
+    if (persistPreference !== false) {
+      preferredView = newView;
+      localStorage.setItem('bec_book_view', preferredView);
+    }
     syncViewButtons();
 
     // Actualizar props en tiempo de ejecución de dc-runtime
@@ -408,6 +411,8 @@
       btn2.classList.add('is-active');
       btn1.classList.remove('is-active');
     }
+    btn2.disabled = mobileViewQuery.matches;
+    btn2.setAttribute('aria-hidden', mobileViewQuery.matches ? 'true' : 'false');
   }
 
   // ══════════════════════════════════════════════════════
@@ -445,13 +450,6 @@
     });
 
     return Array.from(set).sort(function(a, b) { return a - b; });
-  }
-
-  function printAllPages() {
-    var allPageElements = document.querySelectorAll('[data-page]');
-    var allNums = [];
-    for (var i = 1; i <= allPageElements.length; i++) allNums.push(i);
-    printSelectedPages(allNums);
   }
 
   function printSelectedPages(pageNumbers) {
@@ -594,13 +592,23 @@
     initToolbar();
   }
 
-  // Re-aplicar vista persistida si es 'Single' una vez que arranque dc-runtime
+  // Aplicar la vista adecuada una vez que arranque dc-runtime.
   window.addEventListener('load', function() {
-    if (currentView === 'Single' && window.__dcSetProps && window.__dcRootName) {
+    if (window.__dcSetProps && window.__dcRootName) {
       setTimeout(function() {
-        applyView('Single');
+        applyView(currentView, false);
       }, 300);
     }
   });
+
+  function handleViewportModeChange(event) {
+    applyView(event.matches ? 'Single' : preferredView, false);
+  }
+
+  if (mobileViewQuery.addEventListener) {
+    mobileViewQuery.addEventListener('change', handleViewportModeChange);
+  } else {
+    mobileViewQuery.addListener(handleViewportModeChange);
+  }
 
 })();

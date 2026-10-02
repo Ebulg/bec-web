@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bernal's English Course — Biblioteca de Libros</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -389,6 +389,58 @@ footer{
 .books-grid > div:nth-child(1){animation-delay:.05s}
 .books-grid > div:nth-child(2){animation-delay:.15s}
 .books-grid > div:nth-child(3){animation-delay:.25s}
+@media (max-width:700px){
+  header{
+    min-height:66px;
+    height:auto;
+    padding:10px max(14px, env(safe-area-inset-right)) 10px max(14px, env(safe-area-inset-left));
+    gap:12px;
+  }
+  .header-brand{flex:1 1 auto;gap:10px;min-width:0;overflow:hidden}
+  .brand-mark{width:40px;height:40px;border-radius:11px;font-size:20px;flex:0 0 auto}
+  .brand-info{min-width:0}
+  .brand-info h1{font-size:clamp(14px,4.2vw,17px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand-info span{font-size:9px;letter-spacing:.11em}
+  .header-actions{gap:8px;flex:0 0 auto}
+  .auth-badge{width:34px;height:34px;padding:0;justify-content:center}
+  .auth-badge span{display:none}
+  .btn-logout{width:42px;height:42px;padding:0;justify-content:center;border-radius:12px}
+  .btn-logout span{display:none}
+  main{padding:34px 16px 54px}
+  .hero-header{margin-bottom:27px}
+  .hero-kicker{font-size:10px;letter-spacing:.15em;margin-bottom:9px}
+  .hero-title{font-size:clamp(31px,9vw,39px);line-height:1.05;margin-bottom:11px}
+  .hero-desc{font-size:14px;line-height:1.6}
+  .books-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  .book-card{border-radius:20px}
+  .book-card:hover{transform:none}
+  .card-cover{height:190px;padding:19px}
+  .cover-stars-strip{width:43px}
+  .cover-body{padding-left:37px}
+  .cover-title{font-size:23px}
+  .card-badge{top:13px;right:13px}
+  .card-content{padding:21px 19px 17px}
+  .card-content h3{font-size:19px;line-height:1.25}
+  .card-content p{font-size:13.5px;margin-bottom:17px}
+  .card-pills{gap:8px;margin-bottom:17px}
+  .pill{font-size:11.5px;padding:6px 9px}
+  .card-footer{padding:0 19px 20px}
+  .btn-book{min-height:50px;padding:13px 18px}
+  footer{padding:28px 20px max(38px,env(safe-area-inset-bottom))}
+}
+@media (max-width:380px){
+  .brand-info span{display:none}
+  main{padding-left:12px;padding-right:12px}
+  .card-cover{height:178px}
+  .card-content,.card-footer{padding-left:17px;padding-right:17px}
+}
+@media (hover:none){
+  .btn-book:hover{background:var(--blue);box-shadow:0 4px 14px oklch(0.50 0.17 258 / 0.25)}
+  .btn-logout:hover{background:transparent;border-color:var(--border);color:var(--muted)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
 <body>
@@ -413,7 +465,7 @@ footer{
         <polyline points="16 17 21 12 16 7"></polyline>
         <line x1="21" y1="12" x2="9" y2="12"></line>
       </svg>
-      Salir
+      <span>Salir</span>
     </button>
   </div>
 </header>

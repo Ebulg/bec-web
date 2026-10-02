@@ -15,8 +15,8 @@
 /* ─── FLOATING ACTION CONTAINER ─── */
 .bec-fab-root {
   position: fixed;
-  bottom: 26px;
-  right: 26px;
+  bottom: max(26px, env(safe-area-inset-bottom));
+  right: max(26px, env(safe-area-inset-right));
   z-index: 99999;
   font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
   user-select: none;
@@ -35,7 +35,11 @@
     0 0 0 1px rgba(0, 0, 0, 0.2);
   color: var(--bec-text);
   overflow: hidden;
-  transition: all 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.32s ease,
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
   display: flex;
   align-items: center;
 }
@@ -74,6 +78,11 @@
   color: #fff;
   transition: transform 0.3s ease;
   flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
 }
 
 .bec-fab-pill.is-collapsed:hover .bec-fab-trigger-icon {
@@ -105,32 +114,38 @@
   transform: translateY(-50%) translateX(-4px);
 }
 
-/* ─── ESTADO DESPLEGADO: BARRA DE HERRAMIENTAS ─── */
+/* ─── ESTADO DESPLEGADO: PANEL VERTICAL HACIA ARRIBA ─── */
 .bec-fab-pill.is-expanded {
-  width: auto;
-  height: 56px;
-  border-radius: 28px;
-  padding: 0 8px 0 12px;
-  gap: 8px;
+  width: 60px;
+  height: auto;
+  max-height: none;
+  border-radius: 24px;
+  padding: 6px;
   cursor: default;
-  animation: barReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: right bottom;
+  animation: barReveal 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes barReveal {
   from {
-    opacity: 0.8;
-    transform: scale(0.96);
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
 .bec-toolbar-content {
   display: none;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  width: 48px;
+  overflow: visible;
 }
 
 .bec-fab-pill.is-expanded .bec-toolbar-content {
@@ -147,20 +162,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  height: 40px;
-  padding: 0 12px;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 20px;
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   color: var(--bec-text);
   font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .bec-tool-btn:hover {
@@ -175,13 +188,14 @@
 
 .bec-tool-btn svg {
   flex-shrink: 0;
+  width: 19px;
+  height: 19px;
 }
 
 /* Botón Regresar al Menú */
 .bec-btn-return {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.1);
-  padding: 0 14px;
 }
 
 .bec-btn-return:hover {
@@ -189,41 +203,41 @@
   border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Separadores verticales */
+/* Separadores horizontales entre grupos */
 .bec-divider {
-  width: 1px;
-  height: 24px;
+  width: 32px;
+  height: 1px;
   background: rgba(255, 255, 255, 0.15);
-  margin: 0 2px;
+  margin: 1px 0;
 }
 
 /* Segmented Control para 1 Hoja / 2 Hojas */
 .bec-view-segmented {
-  display: inline-flex;
+  display: flex;
+  width: 48px;
+  flex-direction: column;
   align-items: center;
   background: rgba(0, 0, 0, 0.35);
-  padding: 3px;
-  border-radius: 20px;
+  padding: 2px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  gap: 2px;
+  gap: 3px;
 }
 
 .bec-view-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  height: 34px;
-  padding: 0 11px;
+  height: 42px;
+  width: 42px;
+  padding: 0;
   border: none;
-  border-radius: 17px;
+  border-radius: 13px;
   background: transparent;
   color: var(--bec-muted);
   font-family: inherit;
-  font-size: 12px;
-  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  justify-content: center;
 }
 
 .bec-view-btn:hover {
@@ -238,18 +252,30 @@
 
 /* Botón de Cerrar / Contraer barra */
 .bec-btn-close {
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  min-height: 48px;
   padding: 0;
-  border-radius: 18px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.06);
   color: var(--bec-muted);
-  margin-left: 2px;
+  margin: 0;
+  justify-content: center;
 }
 
 .bec-btn-close:hover {
   background: rgba(255, 255, 255, 0.16);
   color: #fff;
+}
+
+.bec-fab-trigger-icon:focus-visible,
+.bec-tool-btn:focus-visible,
+.bec-view-btn:focus-visible,
+.bec-modal-close:focus-visible,
+.bec-chip:focus-visible,
+.bec-modal-btn-cancel:focus-visible,
+.bec-modal-btn-print:focus-visible {
+  outline: 3px solid oklch(0.72 0.14 258);
+  outline-offset: 2px;
 }
 
 /* ─── MODAL DE DESCARGA SELECTIVA ─── */
@@ -540,6 +566,84 @@
 /* Portal de impresión aislado (oculto en pantalla) */
 #becPrintPortal {
   display: none;
+}
+
+/* ─── TELÉFONOS Y TABLETS PEQUEÑAS ─── */
+@media (max-width: 900px) {
+  .bec-fab-root {
+    bottom: max(12px, env(safe-area-inset-bottom));
+    right: max(12px, env(safe-area-inset-right));
+  }
+
+  .bec-fab-pill.is-collapsed,
+  .bec-fab-trigger-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .bec-fab-pill.is-expanded {
+    width: 58px;
+    max-height: none;
+    border-radius: 23px;
+    padding: 5px;
+  }
+
+  .bec-toolbar-content,
+  .bec-tool-btn,
+  .bec-btn-close {
+    width: 48px;
+  }
+
+  /* En teléfono el libro siempre se muestra como una hoja. */
+  .bec-view-segmented {
+    display: none;
+  }
+
+  .bec-fab-tooltip {
+    display: none;
+  }
+
+  .bec-modal-backdrop {
+    align-items: flex-end;
+    padding: 12px max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
+
+  .bec-modal-card {
+    max-height: calc(100dvh - 24px - env(safe-area-inset-bottom));
+    overflow-y: auto;
+    border-radius: 22px;
+    padding: 25px 19px 20px;
+  }
+
+  .bec-modal-head h3 { font-size: 20px; }
+  .bec-modal-head p { line-height: 1.35; }
+  .bec-modal-body { margin-bottom: 20px; }
+  .bec-modal-input { font-size: 16px; }
+  .bec-chip { min-height: 38px; }
+  .bec-modal-actions { gap: 8px; }
+  .bec-modal-btn-cancel,
+  .bec-modal-btn-print { min-height: 48px; padding: 11px 15px; }
+}
+
+@media (max-width: 390px) {
+  .bec-modal-title-group { align-items: flex-start; gap: 9px; }
+  .bec-modal-icon-badge { width: 38px; height: 38px; border-radius: 10px; }
+  .bec-modal-actions { flex-direction: column-reverse; align-items: stretch; }
+  .bec-modal-btn-cancel,
+  .bec-modal-btn-print { width: 100%; justify-content: center; }
+}
+
+@media (hover: none) {
+  .bec-fab-pill.is-collapsed:hover { transform: none; }
+  .bec-tool-btn:hover,
+  .bec-btn-return:hover,
+  .bec-btn-close:hover { border-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bec-fab-pill,
+  .bec-modal-backdrop,
+  .bec-modal-card { animation: none !important; transition-duration: 0.01ms !important; }
 }
 
 /* ─── OCULTAR EN IMPRESIÓN (PRINT STYLES) ─── */
