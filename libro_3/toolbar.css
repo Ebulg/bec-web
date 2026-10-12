@@ -1,0 +1,667 @@
+/* ════════════════════════════════════════════════════════════════════
+   BERNAL'S ENGLISH COURSE — FLOATING TOOLBAR & CONTROLS
+   ════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bec-blue: oklch(0.50 0.17 258);
+  --bec-navy: oklch(0.36 0.11 258);
+  --bec-dark: #1b1916;
+  --bec-card: #282420;
+  --bec-text: #f5f2eb;
+  --bec-muted: #9e978c;
+  --bec-gold: #e5b358;
+}
+
+/* ─── FLOATING ACTION CONTAINER ─── */
+.bec-fab-root {
+  position: fixed;
+  bottom: max(26px, env(safe-area-inset-bottom));
+  right: max(26px, env(safe-area-inset-right));
+  z-index: 99999;
+  font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+}
+
+/* ─── THE MORPHING ELEMENT ─── */
+.bec-fab-pill {
+  position: relative;
+  background: rgba(27, 25, 22, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    0 16px 40px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(0, 0, 0, 0.2);
+  color: var(--bec-text);
+  overflow: hidden;
+  transition: width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.32s ease,
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* Estado Colapsado: Botón circular con icono */
+.bec-fab-pill.is-collapsed {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  cursor: pointer;
+  justify-content: center;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 2px oklch(0.50 0.17 258 / 0.3);
+}
+
+.bec-fab-pill.is-collapsed:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.38),
+    0 0 0 3px oklch(0.50 0.17 258 / 0.5);
+  background: rgba(35, 32, 28, 0.96);
+}
+
+.bec-fab-pill.is-collapsed:active {
+  transform: scale(0.96);
+}
+
+/* Icono del FAB colapsado */
+.bec-fab-trigger-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.bec-fab-pill.is-collapsed:hover .bec-fab-trigger-icon {
+  transform: rotate(45deg);
+}
+
+/* Tooltip en estado colapsado */
+.bec-fab-tooltip {
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(22, 20, 18, 0.95);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.bec-fab-pill.is-collapsed:hover .bec-fab-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+/* ─── ESTADO DESPLEGADO: PANEL VERTICAL HACIA ARRIBA ─── */
+.bec-fab-pill.is-expanded {
+  width: 60px;
+  height: auto;
+  max-height: none;
+  border-radius: 24px;
+  padding: 6px;
+  cursor: default;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: right bottom;
+  animation: barReveal 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes barReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.bec-toolbar-content {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 48px;
+  overflow: visible;
+}
+
+.bec-fab-pill.is-expanded .bec-toolbar-content {
+  display: flex;
+}
+
+.bec-fab-pill.is-expanded .bec-fab-trigger-icon,
+.bec-fab-pill.is-expanded .bec-fab-tooltip {
+  display: none;
+}
+
+/* ─── BOTONES DENTRO DE LA BARRA ─── */
+.bec-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: var(--bec-text);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.bec-tool-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.bec-tool-btn:active {
+  transform: scale(0.96);
+}
+
+.bec-tool-btn svg {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+}
+
+/* Botón Regresar al Menú */
+.bec-btn-return {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.bec-btn-return:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Separadores horizontales entre grupos */
+.bec-divider {
+  width: 32px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 1px 0;
+}
+
+/* Segmented Control para 1 Hoja / 2 Hojas */
+.bec-view-segmented {
+  display: flex;
+  width: 48px;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 3px;
+}
+
+.bec-view-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 42px;
+  width: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 13px;
+  background: transparent;
+  color: var(--bec-muted);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  justify-content: center;
+}
+
+.bec-view-btn:hover {
+  color: #fff;
+}
+
+.bec-view-btn.is-active {
+  background: var(--bec-blue);
+  color: #fff;
+  box-shadow: 0 2px 8px oklch(0.50 0.17 258 / 0.45);
+}
+
+/* Botón de Cerrar / Contraer barra */
+.bec-btn-close {
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--bec-muted);
+  margin: 0;
+  justify-content: center;
+}
+
+.bec-btn-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.bec-fab-trigger-icon:focus-visible,
+.bec-tool-btn:focus-visible,
+.bec-view-btn:focus-visible,
+.bec-modal-close:focus-visible,
+.bec-chip:focus-visible,
+.bec-modal-btn-cancel:focus-visible,
+.bec-modal-btn-print:focus-visible {
+  outline: 3px solid oklch(0.72 0.14 258);
+  outline-offset: 2px;
+}
+
+/* ─── MODAL DE DESCARGA SELECTIVA ─── */
+.bec-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(18, 16, 14, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bec-modal-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bec-modal-card {
+  background: #fffdf8;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  padding: 36px 36px 32px;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 24px 60px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #1f1d1a;
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.bec-modal-backdrop.is-visible .bec-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.bec-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.bec-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bec-modal-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: oklch(0.50 0.17 258 / 0.12);
+  color: var(--bec-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bec-modal-head h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #1f1d1a;
+  margin: 0;
+}
+
+.bec-modal-head p {
+  font-size: 13px;
+  color: #787267;
+  margin-top: 3px;
+}
+
+.bec-modal-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #9c9487;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.bec-modal-close:hover {
+  background: #f0ece3;
+  color: #1f1d1a;
+}
+
+/* Cuerpo del Modal */
+.bec-modal-body {
+  margin-bottom: 26px;
+}
+
+.bec-modal-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #59544c;
+  margin-bottom: 16px;
+}
+
+.bec-modal-input-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6e675b;
+  margin-bottom: 8px;
+}
+
+.bec-modal-total-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--bec-blue);
+  background: #ede8dc;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.bec-modal-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #dfd8cc;
+  border-radius: 12px;
+  font-family: 'Libre Franklin', monospace, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f1d1a;
+  background: #faf7f0;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.bec-modal-input:focus {
+  border-color: var(--bec-blue);
+  background: #fff;
+  box-shadow: 0 0 0 3px oklch(0.50 0.17 258 / 0.14);
+}
+
+/* Chips de selección rápida */
+.bec-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.bec-chip {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #efebe2;
+  border: 1px solid #e1dcce;
+  color: #5c564c;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bec-chip:hover {
+  background: #e2ddd3;
+  color: #1f1d1a;
+  border-color: #d1cbbf;
+}
+
+/* Feedback de selección */
+.bec-selection-feedback {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bec-selection-feedback.is-valid {
+  background: oklch(0.58 0.18 145 / 0.12);
+  color: oklch(0.40 0.14 145);
+}
+
+.bec-selection-feedback.is-empty {
+  background: #f0ece3;
+  color: #827b6f;
+}
+
+.bec-selection-feedback.is-error {
+  background: oklch(0.55 0.22 25 / 0.12);
+  color: oklch(0.55 0.22 25);
+}
+
+/* Botones del Modal */
+.bec-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.bec-modal-btn-cancel {
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1.5px solid #ded8cc;
+  color: #635d52;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bec-modal-btn-cancel:hover {
+  background: #f1ede4;
+  color: #1f1d1a;
+}
+
+.bec-modal-btn-print {
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: var(--bec-blue);
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px oklch(0.50 0.17 258 / 0.3);
+}
+
+.bec-modal-btn-print:hover {
+  background: var(--bec-navy);
+  box-shadow: 0 6px 18px oklch(0.36 0.11 258 / 0.4);
+}
+
+.bec-modal-btn-print:disabled {
+  background: #cfc8bd;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.bec-modal-tip {
+  margin-top: 14px;
+  padding: 11px 15px;
+  background: #f7f4ee;
+  border-left: 3.5px solid var(--bec-blue);
+  border-radius: 0 10px 10px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #575147;
+}
+
+.bec-modal-tip strong {
+  color: #211e1a;
+}
+
+.bec-modal-tip ul {
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.bec-modal-tip li {
+  margin-bottom: 3px;
+}
+
+/* Portal de impresión aislado (oculto en pantalla) */
+#becPrintPortal {
+  display: none;
+}
+
+/* ─── TELÉFONOS Y TABLETS PEQUEÑAS ─── */
+@media (max-width: 900px) {
+  .bec-fab-root {
+    bottom: max(12px, env(safe-area-inset-bottom));
+    right: max(12px, env(safe-area-inset-right));
+  }
+
+  .bec-fab-pill.is-collapsed,
+  .bec-fab-trigger-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .bec-fab-pill.is-expanded {
+    width: 58px;
+    max-height: none;
+    border-radius: 23px;
+    padding: 5px;
+  }
+
+  .bec-toolbar-content,
+  .bec-tool-btn,
+  .bec-btn-close {
+    width: 48px;
+  }
+
+  /* En teléfono el libro siempre se muestra como una hoja. */
+  .bec-view-segmented {
+    display: none;
+  }
+
+  .bec-fab-tooltip {
+    display: none;
+  }
+
+  .bec-modal-backdrop {
+    align-items: flex-end;
+    padding: 12px max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
+
+  .bec-modal-card {
+    max-height: calc(100dvh - 24px - env(safe-area-inset-bottom));
+    overflow-y: auto;
+    border-radius: 22px;
+    padding: 25px 19px 20px;
+  }
+
+  .bec-modal-head h3 { font-size: 20px; }
+  .bec-modal-head p { line-height: 1.35; }
+  .bec-modal-body { margin-bottom: 20px; }
+  .bec-modal-input { font-size: 16px; }
+  .bec-chip { min-height: 38px; }
+  .bec-modal-actions { gap: 8px; }
+  .bec-modal-btn-cancel,
+  .bec-modal-btn-print { min-height: 48px; padding: 11px 15px; }
+}
+
+@media (max-width: 390px) {
+  .bec-modal-title-group { align-items: flex-start; gap: 9px; }
+  .bec-modal-icon-badge { width: 38px; height: 38px; border-radius: 10px; }
+  .bec-modal-actions { flex-direction: column-reverse; align-items: stretch; }
+  .bec-modal-btn-cancel,
+  .bec-modal-btn-print { width: 100%; justify-content: center; }
+}
+
+@media (hover: none) {
+  .bec-fab-pill.is-collapsed:hover { transform: none; }
+  .bec-tool-btn:hover,
+  .bec-btn-return:hover,
+  .bec-btn-close:hover { border-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bec-fab-pill,
+  .bec-modal-backdrop,
+  .bec-modal-card { animation: none !important; transition-duration: 0.01ms !important; }
+}
+
+/* ─── OCULTAR EN IMPRESIÓN (PRINT STYLES) ─── */
+@media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 0 !important;
+  }
+  html, body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .bec-fab-root,
+  .bec-modal-backdrop,
+  .bec-fab-pill {
+    display: none !important;
+  }
+}
