@@ -1,0 +1,23 @@
+{"running":"Lesson Ten","pages":[
+{"src":[38],"blocks":[
+ {"t":"lesson","n":10,"title":"Lesson Ten","sub":"Tenth (10th) Lesson"},
+ {"t":"part","n":"I","title":"Practicing Expressions in Future Tense"},
+ {"t":"side","img":"img/v/l10-you.svg","h":"80px","w":"90px","left":true,"lines":["*Will you go there?* (go)"]},
+ {"t":"write","num":false,"rowGap":"6px","qw":"150px","items":[{"q":"(dance)"},{"q":"(buy)"},{"q":"(turn off the light)"},{"q":"(close the door)"},{"q":"(sit down here)"}]},
+ {"t":"side","img":"img/v/l10-we.svg","h":"80px","w":"90px","left":true,"lines":["*Shall we go there?* (go)"]},
+ {"t":"write","num":false,"rowGap":"6px","qw":"150px","items":[{"q":"(open)"},{"q":"(invite)"},{"q":"(rest)"},{"q":"(drink)"},{"q":"(read)"},{"q":"(explain)"}]}
+]},
+{"src":[38,39],"blocks":[
+ {"t":"part","n":"II","title":"“Whether – If”"},
+ {"t":"inst","text":"Nº 1"},
+ {"t":"olist","num":false,"items":["*Mr. A –* I want to know *“if”* they are going to play.","*Mr. B –* He wants to know *“whether”* you are going to play tomorrow.","*Mr. C –* Of course. We’re going to play tomorrow."]},
+ {"t":"note","text":"Mr. *B* is reporting the question to Mr. *C*."},
+ {"t":"inst","text":"Nº 2"},
+ {"t":"olist","num":false,"items":["*Mr. A –* Can you tell me whether or not I may invite her to the beach?","*Mr. B –* He wants to know if he can invite you to the beach.","*Mrs. C –* Oh! sure."]},
+ {"t":"part","n":"III","title":"Fill in the Blanks (use whether – if)"},
+ {"t":"inst","text":"Nº 1"},
+ {"t":"olist","num":false,"items":["*Mrs. A –* I want to know ________ I can send you some flowers.","*Mr. B –* He wants to know ________ he can send you some flowers.","*Mr. C –* Oh! certainly!"]},
+ {"t":"inst","text":"Nº 2"},
+ {"t":"olist","num":false,"items":["*Mrs. A –* I want to know ________ I may buy that expensive dress.","*Mr. B –* She wants to know ________ she can buy that expensive dress.","*Mr. C –* Yes, of course she may."]}
+]}
+]}

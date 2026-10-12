@@ -1,0 +1,20 @@
+{"running":"Lesson Eleven","pages":[
+{"src":[40],"blocks":[
+ {"t":"lesson","n":11,"title":"Lesson Eleven","sub":"Eleventh (11th) Lesson"},
+ {"t":"part","n":"I","title":"“Describing Some Persons…”"},
+ {"t":"side","img":"img/v/l11-virginia.svg","h":"360px","w":"180px","left":true,"lines":["This is Mrs. Virginia Gilbertson.","Virginia is *thin*.","She has *short* and *black hair*.","She has a small nose.","She’s a *pretty* woman.","She’s *smart*."]},
+ {"t":"side","img":"img/v/l11-diane.svg","h":"380px","w":"240px","lines":["*Look at this girl:*","This is Diane, Virginia’s niece.","Diane is *Full-Figured*.","She is tall.","She is blonde.","She has big blue eyes.","She is a *nice* girl.","She is an intelligent girl."]}
+]},
+{"src":[40,41],"blocks":[
+ {"t":"part","n":"II","title":"Answer"},
+ {"t":"write","below":true,"rowGap":"6px","items":[{"q":"Is Virginia thin or full-figured?"},{"q":"Is Diane short or tall?"},{"q":"Does Virginia have black hair?"},{"q":"Is Diane blonde?"},{"q":"How is Virginia? (pretty – ugly)"},{"q":"Is Diane a nice girl?"},{"q":"Is Virginia smart?"},{"q":"Is Diane an intelligent girl?"}]}
+]},
+{"src":[41],"blocks":[
+ {"t":"h","text":"“Observe”"},
+ {"t":"figs","items":[{"img":"img/v/l11-strong.svg","cap":"“STRONG”\nHis weight is 170 pounds","h":"300px","w":"290px"},{"img":"img/v/l11-dumbbell.svg","cap":"","h":"60px","w":"90px"},{"img":"img/v/l11-weak.svg","cap":"“WEAK”\nHis weight is 45 pounds","h":"300px","w":"230px"}]},
+ {"t":"part","n":"III","title":"Individual Questions"},
+ {"t":"write","rowGap":"10px","items":[{"q":"Are you full-figured?"},{"q":"Are you short or tall?"},{"q":"How tall are you?"},{"q":"What’s your weight?"},{"q":"Are you strong or weak?"}]},
+ {"t":"part","n":"IV","title":"Dialogue: (Informal Conversation)"},
+ {"t":"olist","num":false,"items":["*A)* I met a girl last night.","*B)* Really?","*A)* Sure. I went to a party with some friends. They introduced me to her.","*B)* What’s her name?","*A)* Jackeline.","*B)* What does she look like?","*A)* She’s blonde, tall, and very smart.","*B)* Well, congratulations for your new friend."]}
+]}
+]}
