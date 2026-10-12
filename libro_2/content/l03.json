@@ -1,0 +1,44 @@
+{"running":"Lesson Three","pages":[
+{"src":[11],"blocks":[
+ {"t":"lesson","n":3,"title":"Lesson Three","sub":"Third (3rd) Lesson"},
+ {"t":"part","n":"I","title":"Dialogues in Past Tense"},
+ {"t":"inst","text":"Dialogue Nº 1"},
+ {"t":"olist","num":false,"items":["*Harry:* Were there many people at the party?","*Caroline:* Yes, there _were_.","*Harry:* _Did_ you dance all night long?","*Caroline:* No, I didn’t. I only danced twice with Johnny.","*Harry:* Did you have a good time?","*Caroline:* Yes, I did."]},
+ {"t":"h","text":"Complete the dialogue:"},
+ {"t":"olist","num":false,"items":["*Harry:* ______ there many people at the party?","*Caroline:* Yes, __________","*Harry:* _____ you dance all night long?","*Caroline:* No, ______ I only danced twice with Johnny.","*Harry:* _____ you have a good time?","*Caroline:* __________"]}
+]},
+{"src":[11],"blocks":[
+ {"t":"inst","text":"Dialogue Nº 2"},
+ {"t":"olist","num":false,"items":["*Richard:* Did you visit Caroline last week?","*Harry:* Yes, I did.","*Richard:* I know. I was _kidding_. She told me that you went to visit her.","*Harry:* It wasn’t funny. Why did you try to trick me?","*Richard:* Sorry! I didn’t think that you were serious.","*Harry:* O.K. forget it!"]},
+ {"t":"h","text":"Complete the dialogue:"},
+ {"t":"olist","num":false,"items":["*Richard:* _____ you visit Caroline last week?","*Harry:* Yes, ______","*Richard:* I know. I was kidding. She _____ me that you went to visit her.","*Harry:* It, ______ funny. Why _____ you lie to me?","*Richard:* Sorry! I ______ think that you’re serious.","*Harry:* O.K. forget it!"]}
+]},
+{"src":[12],"blocks":[
+ {"t":"part","n":"II","title":"Read the paragraph"},
+ {"t":"p","text":"I *went* to the supermarket this morning at 8 o’clock. Suddenly someone *fell* on the street. I *was* observing the situation before arriving at the supermarket and I *fell* on the street, too. So, when I *got* home I *told* my mother “I fell on the street when I *was* going to the supermarket.”"},
+ {"t":"h","text":"Look at these verbs:"},
+ {"t":"table","w":"80%","align":"center","rows":[["go","going","went","gone"],["fall","falling","fell","fallen"],["get","getting","got","gotten"],["observe","observing","observed","observed"]]},
+ {"t":"part","n":"III","title":"Observe the Sentences"},
+ {"t":"note","text":"I was going to the supermarket. — I was observing the situation."},
+ {"t":"inst","text":"Answer:"},
+ {"t":"write","below":true,"rowGap":"6px","items":[{"q":"Did you go to the supermarket?"},{"q":"Did you fall on the street?"},{"q":"Did you fall when you were going to the supermarket?"}]},
+ {"t":"h","text":"Now, translate the paragraph into Spanish:"},
+ {"t":"write","num":false,"rowGap":"8px","items":[{"q":""},{"q":""},{"q":""},{"q":""},{"q":""}]}
+]},
+{"src":[13],"blocks":[
+ {"t":"part","n":"IV","title":"Playing Games with English Sentences"},
+ {"t":"inst","text":"Observe the example:"},
+ {"t":"img","src":"img/v/l03-bubbles.svg","h":"860px"}
+]},
+{"src":[14],"blocks":[
+ {"t":"h","text":"In grammar class… Future Tense"},
+ {"t":"img","src":"img/v/l03-grammar.svg","h":"330px"},
+ {"t":"inst","text":"Change to questions:"},
+ {"t":"write","num":false,"rowGap":"6px","items":[{"q":"I will drive my father’s car.","a":"Will you drive your father’s car?"},{"q":"You will go to Miami Beach."},{"q":"He will take the next course."},{"q":"She will dance tonight."},{"q":"It will be hard to understand."},{"q":"We will observe the map."},{"q":"You will pay the taxes."},{"q":"You will paint the building."}]},
+ {"t":"note","text":"You will = you’ll"}
+]},
+{"src":[14],"blocks":[
+ {"t":"h","text":"“Going to” (Future)"},
+ {"t":"write","num":false,"rowGap":"10px","items":[{"q":"I am going to Aruba.","a":"Are you going to Aruba?"},{"q":"You are going to drive the car."},{"q":"He is going to take a course."},{"q":"She is going to dance tonight."},{"q":"It is going to be hard."},{"q":"We are going to observe the map."},{"q":"You are going to pay the taxes."},{"q":"They are going to paint the building."}]}
+]}
+]}

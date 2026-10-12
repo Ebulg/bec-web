@@ -1,0 +1,318 @@
+{
+"running": "Lesson Two",
+"pages": [
+{
+"src": [
+7
+],
+"blocks": [
+{
+"t": "lesson",
+"n": 2,
+"title": "Lesson Two",
+"sub": "Second (2nd) Lesson"
+},
+{
+"t": "part",
+"n": "I",
+"title": "“Sports”"
+},
+{
+"t": "h",
+"text": "Dialogue:"
+},
+{
+"t": "olist",
+"num": false,
+"items": [
+"*Bob:* What’s your favorite sport?",
+"*Tom:* My favorite sport is swimming. And yours?",
+"*Bob:* I prefer tennis.",
+"*Bob:* My cousin Bill likes to play tennis. He won the summer games last year.",
+"*Tom:* Oh! That’s interesting! I hope to be the winner in the same games next year.",
+"*Bob:* Good luck!",
+"*Tom:* Thank you."
+]
+},
+{
+"t": "img",
+"src": "img/v/l02-sports.svg",
+"h": "420px"
+}
+]
+},
+{
+"src": [
+8
+],
+"blocks": [
+{
+"t": "h",
+"text": "Complete the dialogue:"
+},
+{
+"t": "olist",
+"num": false,
+"items": [
+"*Bob:* What’s your favorite sport?",
+"*Tom:* My favorite sport is swimming. And yours?",
+"*Bob:* ______________________",
+"*Tom:* My cousin Bill likes to play tennis. He won the summer games last year.",
+"*Bob:* Oh! __________ I ______ to be the winner in the same games next year.",
+"*Tom:* Good luck!",
+"*Bob:* __________"
+]
+},
+{
+"t": "h",
+"text": "There are many sports you can practice"
+},
+{
+"t": "inst",
+"text": "Let’s write some…"
+},
+{
+"t": "olist",
+"num": false,
+"cols": 3,
+"items": [
+"*Kick-ball*",
+"Basketball",
+"Tennis",
+"Judo",
+"Golf",
+"Baseball",
+"Volleyball",
+"Ping-pong",
+"Bowling",
+"Swimming",
+"Skating",
+"Riding",
+"Car races"
+]
+},
+{
+"t": "h",
+"text": "Write Sentences:"
+},
+{
+"t": "write",
+"below": true,
+"lines": 1,
+"rowGap": "4px",
+"items": [
+{
+"q": "*Practice / judo*"
+},
+{
+"q": "*Prefer / water polo*"
+},
+{
+"q": "*Love / soccer*"
+},
+{
+"q": "*Favorite / cycle racing*"
+},
+{
+"q": "*Enjoy / ice hockey*"
+},
+{
+"q": "*Practice / tennis*"
+},
+{
+"q": "*Prefer / winter sports*"
+},
+{
+"q": "*Favorite / fishing*"
+},
+{
+"q": "*Practice / cricket*"
+},
+{
+"q": "*Love / table tennis*"
+}
+],
+"cols": 2
+}
+]
+},
+{
+"src": [
+9
+],
+"blocks": [
+{
+"t": "part",
+"n": "II",
+"title": "More about Sports"
+},
+{
+"t": "side",
+"img": "img/v/l02-caroline.svg",
+"h": "600px",
+"w": "300px",
+"left": true,
+"lines": [
+"*Listen:*",
+"Hello!",
+"I’m Caroline.",
+"I’m from America.",
+"Many people call me Carol.",
+"I love sports.",
+"My favorite sport is skating but I practice diving, swimming and volleyball, too.",
+"All my family like sports.",
+"My brother Richard is a very good baseball player.",
+"He plays the second base for the “Blue Socks” in Madison, Wisconsin."
+]
+},
+{
+"t": "h",
+"text": "“Translate to Spanish”"
+},
+{
+"t": "write",
+"num": false,
+"rowGap": "10px",
+"items": [
+{
+"q": ""
+},
+{
+"q": ""
+},
+{
+"q": ""
+},
+{
+"q": ""
+},
+{
+"q": ""
+},
+{
+"q": ""
+},
+{
+"q": ""
+}
+]
+}
+]
+},
+{
+"src": [
+10
+],
+"blocks": [
+{
+"t": "part",
+"n": "III",
+"title": "Answer the Questions"
+},
+{
+"t": "write",
+"below": true,
+"rowGap": "8px",
+"items": [
+{
+"q": "Where is Caroline from?"
+},
+{
+"q": "What do people call her?"
+},
+{
+"q": "Does she like sports?"
+},
+{
+"q": "What’s her favorite sport?"
+},
+{
+"q": "Who’s Richard?"
+},
+{
+"q": "What sport does he practice?"
+},
+{
+"q": "What position does he play?"
+},
+{
+"q": "Where are the “Blue Socks” from?"
+}
+]
+}
+]
+},
+{
+"src": [
+10
+],
+"blocks": [
+{
+"t": "part",
+"n": "IV",
+"title": "“What do you prefer to do?”"
+},
+{
+"t": "inst",
+"text": "Observe:"
+},
+{
+"t": "grid",
+"cols": 3,
+"cellH": "150px",
+"gap": "10px 18px",
+"items": [
+{
+"img": "img/v/l02-judo.svg",
+"cap": "Practice Judo"
+},
+{
+"img": "img/v/l02-pingpong.svg",
+"cap": "Play Ping-pong"
+},
+{
+"img": "img/v/l02-fishing.svg",
+"cap": "Go fishing"
+},
+{
+"img": "img/v/l02-cards.svg",
+"cap": "Play cards"
+},
+{
+"img": "img/v/l02-walk.svg",
+"cap": "Go for a walk"
+},
+{
+"img": "img/v/l02-read.svg",
+"cap": "Read a good book"
+},
+{
+"img": "img/v/l02-sleep.svg",
+"cap": "Sleep on the grass"
+},
+{
+"img": "img/v/l02-tv.svg",
+"cap": "Watch T.V."
+},
+{
+"img": "img/v/l02-friend.svg",
+"cap": "Visit a Friend"
+},
+{
+"img": "img/v/l02-tennis.svg",
+"cap": "Play tennis"
+},
+{
+"img": "img/v/l02-hockey.svg",
+"cap": "Practice Hockey"
+},
+{
+"img": "img/v/l02-basketball.svg",
+"cap": "Play Basketball"
+}
+]
+}
+]
+}
+]
+}

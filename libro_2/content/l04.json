@@ -1,0 +1,59 @@
+{"running":"Lesson Four","pages":[
+{"src":[15],"blocks":[
+ {"t":"lesson","n":4,"title":"Lesson Four","sub":"Fourth (4th) Lesson"},
+ {"t":"part","n":"I","title":"Neither – Nor"},
+ {"t":"inst","text":"Repeat the names of these fruits:"},
+ {"t":"grid","cols":5,"shape":"plain","cellH":"118px","gap":"8px 14px","items":[{"img":"img/v/l04-apple.svg","cap":"Apple"},{"img":"img/v/l04-pear.svg","cap":"Pear"},{"img":"img/v/l04-banana.svg","cap":"Banana"},{"img":"img/v/l04-grapes.svg","cap":"Grapes"},{"img":"img/v/l04-orange.svg","cap":"Orange"}]},
+ {"t":"h","text":"Read the paragraph:"},
+ {"t":"p","text":"There are many different kinds of fruits. All of them are good for your health. They contain minerals and vitamines. Oranges and lemons contain vitamine “C”, so, if you drink orange juice you’re taking some grams of that vitamine. Now, let’s talk about the color of some fruits:"},
+ {"t":"olist","num":false,"items":["– Apples are red, green, and sometimes yellow.","– Pears are green or yellow.","– Grapes are green, purple, and sometimes yellow like apples.","– Oranges are green, yellow and orange, too."]},
+ {"t":"h","text":"Answer (use “neither … nor”)"},
+ {"t":"write","num":false,"rowGap":"8px","items":[{"q":"1) Are apples blue or orange?","a":"They are neither blue nor orange."},{"q":"– What color are the apples?"},{"q":"2) Are pears red or purple?"},{"q":"– What color are the pears?"}]}
+]},
+{"src":[15,16],"blocks":[
+ {"t":"h","text":"Connect the ideas. Use “neither … nor”"},
+ {"t":"note","text":"I like either (coffee or tea). → I like neither coffee nor tea."},
+ {"t":"write","below":true,"rowGap":"8px","items":[{"q":"Jenny wants to eat either spaghetti or salad."},{"q":"I will study (either in China or in Japan)."},{"q":"We have written (either to Louis or to Douglas)."},{"q":"She knows how to speak (either French or English)."},{"q":"They have (either a yacht or a boat)."},{"q":"The poor man can (either swim or sail)."}]}
+]},
+{"src":[16],"blocks":[
+ {"t":"part","n":"II","title":"Informal Conversation"},
+ {"t":"img","src":"img/v/l04-juice.svg","h":"360px"},
+ {"t":"olist","num":false,"items":["*Harry:* Is grape juice or apple juice your favorite drink?","*Caroline: Neither* grape juice *nor* apple juice. My favorite drink is orange juice.","*Harry:* So, you *rarely get* a cold.","*Caroline:* That’s true! I *seldom catch* a cold."]},
+ {"t":"h","text":"“Complete the conversation”"},
+ {"t":"olist","num":false,"items":["*Harry:* Is grape juice or apple juice your favorite drink?","*Caroline:* ________________________________","*Harry:* So, you rarely get a cold.","*Caroline:* That’s true! I __________ *catch* a cold."]},
+ {"t":"note","text":"*Seldom = Rarely.*"}
+]},
+{"src":[17],"blocks":[
+ {"t":"part","n":"III","title":"“Either … Or” / “Neither … Nor”"},
+ {"t":"inst","text":"Pay attention to these sentences:"},
+ {"t":"olist","items":["I would like to have *either* a house *or* a car.","I want to spend my vacation in *either* Italy *or* Spain.","She wants to eat *either* fish *or* chicken.","He is going to have a party *either* tomorrow *or* next week.","You like your coffee *either* with sugar *or* without.","We can study with *either* Claudia *or* Bob.","They love *either* grapes *or* oranges."]},
+ {"t":"inst","text":"And these:"},
+ {"t":"olist","items":["Would you like to use a pen or a pencil? I use neither a pen nor a pencil.","Do you like spaghetti or soup? I like neither spaghetti nor soup.","Do you prefer the blue pants or the black ones? I prefer neither the blue pants nor the black ones.","Do you want chocolate or vanilla? I want neither chocolate nor vanilla.","Will you buy the green or the red car? I will buy neither the green nor the red one.","Will you go to John’s or Mary’s party? I will go neither to John’s nor Mary’s party."]}
+]},
+{"src":[17],"blocks":[
+ {"t":"part","n":"IV","title":"Exercise"},
+ {"t":"inst","text":"Write a sentence from these forms. (Use “either … or”)"},
+ {"t":"ex","items":[["He wants to eat fish. He wants to eat meat.","He wants to eat *either* fish *or* meat."]]},
+ {"t":"write","below":true,"rowGap":"10px","items":[{"q":"He wants to drink lemonade. He wants to drink milk."},{"q":"I like apples. I like oranges."},{"q":"You wish to buy a house. You wish to buy a farm."},{"q":"We bought the stamp. We bought the envelope."},{"q":"Orlando is in Florida. Inyus is in Florida."},{"q":"Margaret has eaten a hamburger. Margaret has eaten a hamburger."}]}
+]},
+{"src":[18],"blocks":[
+ {"t":"part","n":"V","title":"Answer Use “Either” … “Or”"},
+ {"t":"ex","items":[["When did they come? (last night – last Saturday)","They came either last night or last Saturday."]]},
+ {"t":"write","below":true,"rowGap":"8px","items":[{"q":"Where will they travel? (Puerto Rico – Panama)"},{"q":"What does she always drink? (some lemonade – coke)"},{"q":"How do you like your coffee? (with cream – without cream)"},{"q":"What didn’t Bill eat? (potatoes – tomatoes)"},{"q":"What did he drink? (orange juice – milk)"}]}
+]},
+{"src":[18],"blocks":[
+ {"t":"part","n":"VI","title":"Informal Conversations"},
+ {"t":"inst","text":"Example:"},
+ {"t":"olist","num":false,"items":["*A boy:* Do you want to go to the beach?","*A girl:* No, thanks. I prefer to stay alone.","*The boy:* When do you want to go to the movies on Saturday or on Sunday?","*The girl:* I want to go to the movies neither on Saturday nor on Sunday.","*The boy:* Oh! What a pity!"]},
+ {"t":"inst","text":"Nº 1"},
+ {"t":"olist","num":false,"items":["*A)* Douglas doesn’t want to talk to her.","*B)* Well, she *doesn’t* want to talk to him *either*.","*A)* What did he say?","*B)* He said that he would be busy and he wouldn’t have time to call her.","*A)* That’s right because she hasn’t *either*."]},
+ {"t":"inst","text":"Nº 2"},
+ {"t":"olist","num":false,"items":["*A)* I’m going to give you a present.","*B)* Oh, I’m going to give you one, too.","*A)* I love to get presents.","*B)* I do too."]}
+]},
+{"src":[19],"blocks":[
+ {"t":"part","n":"VII","title":"Practice Exercises"},
+ {"t":"inst","text":"Complete these sentences use “too” – “either”."},
+ {"t":"ex","items":[["They love to study, and you *do too*.","The teacher isn’t in the classroom, and the pupils aren’t either."]]},
+ {"t":"write","rowGap":"12px","qw":"360px","items":[{"q":"Mary likes orange juice, and you"},{"q":"We had vegetable salad, and Robert"},{"q":"Tom didn’t study, and I"},{"q":"William hasn’t eaten, and Joe"},{"q":"Gene has been educated in Paris, and Helen"},{"q":"You eat fish on Sundays, and my husband"},{"q":"Ralph won’t eat here, and his cousin"},{"q":"The pupils are in the classroom, and the teacher"},{"q":"He has prepared his homework, and I"},{"q":"She wasn’t ashamed of that, and Nancy"}]}
+]}
+]}

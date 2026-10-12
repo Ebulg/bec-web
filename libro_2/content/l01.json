@@ -1,0 +1,478 @@
+{
+"running": "Lesson One",
+"pages": [
+{
+"src": [
+1
+],
+"blocks": [
+{
+"t": "lesson",
+"n": 1,
+"title": "Lesson One",
+"sub": "First (1st) Lesson"
+},
+{
+"t": "part",
+"n": "I",
+"title": "“Asking for Permission”"
+},
+{
+"t": "h",
+"text": "May – Can"
+},
+{
+"t": "inst",
+"text": "How to use may:"
+},
+{
+"t": "img",
+"src": "img/v/l01-computer.svg",
+"h": "440px"
+},
+{
+"t": "inst",
+"text": "… Pay attention …"
+},
+{
+"t": "pairs",
+"rows": [
+[
+"– May I help you?",
+"– Yes, thank you."
+],
+[
+"– May I go out?",
+"– Sure."
+],
+[
+"– May I use your calculator?",
+"– Yes, sure."
+],
+[
+"– *May I make a reservation?*",
+"– *Sure.*"
+],
+[
+"– May I have a cup of coffee?",
+"– Yes, of course."
+]
+]
+}
+]
+},
+{
+"src": [
+2
+],
+"blocks": [
+{
+"t": "h",
+"text": "“How to use Can” (for permission)"
+},
+{
+"t": "inst",
+"text": "Dialogue Nº 1"
+},
+{
+"t": "olist",
+"items": [
+"*Can* I go out?",
+"Yes, you can, but you *must* come back early, O.K.?",
+"Sure.",
+"Can I buy some candies, mom?",
+"Yes, you can."
+]
+},
+{
+"t": "inst",
+"text": "Dialogue Nº 2"
+},
+{
+"t": "olist",
+"items": [
+"Can I eat this cheese burger?",
+"No, you can’t. You *must* keep trim.",
+"O.K. I know, I *have to* keep trim.",
+"That’s good. Don’t forget it!"
+]
+},
+{
+"t": "inst",
+"text": "Dialogue Nº 3"
+},
+{
+"t": "olist",
+"items": [
+"Can I cross the street now?",
+"No, you can’t. Remember you *should* avoid crossing on red.",
+"Can I cross now?",
+"Yes, you can."
+]
+},
+{
+"t": "inst",
+"text": "Dialogue Nº 4"
+},
+{
+"t": "olist",
+"items": [
+"Help me with these heavy boxes, please.",
+"Sorry, I can’t.",
+"Well, can you open the door for me, please?",
+"I said, I can’t. I’m busy now."
+]
+}
+]
+},
+{
+"src": [
+2,
+3
+],
+"blocks": [
+{
+"t": "h",
+"text": "Ask questions to these answers"
+},
+{
+"t": "inst",
+"text": "Use the verbs go, use, make."
+},
+{
+"t": "write",
+"below": true,
+"rowGap": "10px",
+"items": [
+{
+"q": "Sure. *(go)*"
+},
+{
+"q": "Yes, you may. *(use)*"
+},
+{
+"q": "Of course. *(make)*"
+}
+]
+},
+{
+"t": "part",
+"n": "II",
+"title": "Dialogue"
+},
+{
+"t": "pairs",
+"rows": [
+[
+"*Dialogue:*",
+"*Now, write the same dialogue:*"
+],
+[
+"1) May I use your book?",
+"1) ____________________"
+],
+[
+"2) Sure.",
+"2) ____________________"
+],
+[
+"1) Where is it?",
+"1) ____________________"
+],
+[
+"2) It is on the desk.",
+"2) ____________________"
+],
+[
+"1) Thank you.",
+"1) ____________________"
+],
+[
+"2) You’re welcome.",
+"2) ____________________"
+]
+]
+},
+{
+"t": "h",
+"text": "Answer:"
+},
+{
+"t": "write",
+"num": false,
+"below": true,
+"rowGap": "10px",
+"items": [
+{
+"q": "*In the first sentence…* What did number one say to number two?",
+"a": "He said “May I use your book?”"
+},
+{
+"q": "*In the second sentence…* What did number one say to number two?"
+},
+{
+"q": "*Then…* What did number one say to number two?"
+}
+]
+}
+]
+},
+{
+"src": [
+3
+],
+"blocks": [
+{
+"t": "h",
+"text": "Dialogue:"
+},
+{
+"t": "olist",
+"num": false,
+"items": [
+"– Can you help me _carry_ the _heavy box_?",
+"– Sorry, I can’t now.",
+"– Why?",
+"– Because I am _studying_ my _English_ lessons.",
+"– _O.K. I understand_. Don’t worry!"
+]
+},
+{
+"t": "inst",
+"text": "Exercise: Change the dialogue above. Use the following words:"
+},
+{
+"t": "brace",
+"groups": [
+{
+"label": "Can",
+"items": [
+"May"
+]
+},
+{
+"label": "Carry",
+"items": [
+"lift",
+"write",
+"drive",
+"spell"
+]
+},
+{
+"label": "Heavy box",
+"items": [
+"books",
+"note",
+"bus",
+"words"
+]
+}
+]
+},
+{
+"t": "brace",
+"groups": [
+{
+"label": "Sorry, I can’t now",
+"items": [
+"I’m sorry",
+"I’m busy",
+"I can’t"
+]
+},
+{
+"label": "Studying",
+"items": [
+"reading an interesting book",
+"resting now",
+"cooking the meat",
+"cleaning the kitchen"
+]
+},
+{
+"label": "O.K. I understand",
+"items": [
+"Don’t worry",
+"That’s all right",
+"It doesn’t matter"
+]
+}
+]
+}
+]
+},
+{
+"src": [
+4
+],
+"blocks": [
+{
+"t": "h",
+"text": "“Dialogue”"
+},
+{
+"t": "write",
+"num": false,
+"rowGap": "14px",
+"items": [
+{
+"q": "–"
+},
+{
+"q": "–"
+},
+{
+"q": "–"
+},
+{
+"q": "–"
+},
+{
+"q": "–"
+}
+]
+},
+{
+"t": "part",
+"n": "III",
+"title": "Write a Sentence: Use these words"
+},
+{
+"t": "side",
+"img": "img/v/l01-sweep.svg",
+"h": "160px",
+"w": "230px",
+"lines": [
+"*For example:* Sweep / floor",
+"1) Can – 2) May → You help me sweep the floor?",
+"_Sure._ “or” _I’m sorry. I can’t now._"
+]
+},
+{
+"t": "side",
+"img": "img/v/l01-table.svg",
+"h": "160px",
+"w": "230px",
+"lines": [
+"*1- set / table*",
+"_________________________",
+"_________________________"
+]
+},
+{
+"t": "side",
+"img": "img/v/l01-beds.svg",
+"h": "160px",
+"w": "230px",
+"lines": [
+"*2- make / beds*",
+"_________________________",
+"_________________________"
+]
+}
+]
+},
+{
+"src": [
+5
+],
+"blocks": [
+{
+"t": "side",
+"img": "img/v/l01-closet.svg",
+"h": "170px",
+"w": "230px",
+"lines": [
+"*3- hang up / clothes*",
+"_________________________",
+"_________________________"
+]
+},
+{
+"t": "side",
+"img": "img/v/l01-wash.svg",
+"h": "170px",
+"w": "230px",
+"lines": [
+"*4- wash / towels*",
+"_________________________",
+"_________________________"
+]
+},
+{
+"t": "side",
+"img": "img/v/l01-vacuum.svg",
+"h": "170px",
+"w": "230px",
+"lines": [
+"*5- vacuum / carpet*",
+"_________________________",
+"_________________________"
+]
+}
+]
+},
+{
+"src": [
+6
+],
+"blocks": [
+{
+"t": "h",
+"text": "“In Grammar Class”"
+},
+{
+"t": "inst",
+"text": "“Verb to be” — Past Tense (was – were)"
+},
+{
+"t": "img",
+"src": "img/v/l01-grammar.svg",
+"h": "300px"
+},
+{
+"t": "h",
+"text": "Interrogative sentences…"
+},
+{
+"t": "write",
+"rowGap": "12px",
+"items": [
+{
+"q": "Was he on the beach yesterday?"
+},
+{
+"q": "Was she on the beach yesterday?"
+},
+{
+"q": "Were you at the party last night?"
+},
+{
+"q": "Were they at the party last night?"
+}
+]
+},
+{
+"t": "write",
+"num": false,
+"rowGap": "12px",
+"items": [
+{
+"q": "There *is* a radio."
+},
+{
+"q": "There *was* a radio. *(plant)*"
+},
+{
+"q": "There *are* two radios."
+},
+{
+"q": "There *were* two radios. *(plants)*"
+}
+]
+}
+]
+}
+]
+}
