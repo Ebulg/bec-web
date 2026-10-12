@@ -30,22 +30,36 @@
   var mobileViewQuery = window.matchMedia('(max-width: 900px)');
   var preferredView = localStorage.getItem('bec_book_view') || 'Spread';
   var currentView = mobileViewQuery.matches ? 'Single' : preferredView;
-  var TOTAL_PAGES = 204; // Total de páginas de First Book
+  var TOTAL_PAGES = 110; // Total de páginas de Second Book
 
   var PAGE_TITLES = {
-    1: 'Portada (Cover)',
-    2: 'Página de Título',
-    3: 'Introducción (Prólogo)',
-    4: 'Instrucciones de Estudio',
-    5: 'Lección 1: Inicio (A Doll, A Car...) [Hoja 1]',
-    6: 'Lección 1: Vocabulario (A Spoon, A Fork...) [Hoja 2]',
-    7: 'Lección 1: Animales (A Cow, A Horse...) [Hoja 3]',
-    8: 'Lección 1: Singular/Plural (A Peach...) [Hoja 4]',
-    9: 'Lección 1: Plantas y Frutas (A Plant, Plants) [Hoja 5 / orig 10]',
-    10: 'Lección 1: Escritura (Let\'s write a sentence) [Hoja 6 / orig 10]',
-    11: 'Lección 1: Forma Interrogativa [Hoja 7 / orig 11]',
-    12: 'Lección 1: El Alfabeto (ABCDEFG) [Hoja 8 / orig 12]',
-    13: 'Lección 2: Inicio (Pronombres y Verbo To Be) [Hoja 9 / orig 13]'
+    1: "Portada (Cover)",
+    2: "Página de Título",
+    3: "Lección 1: Inicio [orig 1]",
+    10: "Lección 2: Inicio [orig 7]",
+    15: "Lección 3: Inicio [orig 11]",
+    21: "Lección 4: Inicio [orig 15]",
+    29: "Lección 5: Inicio [orig 20]",
+    32: "Lección 6: Inicio [orig 23]",
+    35: "Lección 7: Inicio [orig 26]",
+    40: "Lección 8: Inicio [orig 30]",
+    44: "Lección 9: Inicio [orig 34]",
+    49: "Lección 10: Inicio [orig 38]",
+    51: "Lección 11: Inicio [orig 40]",
+    54: "Lección 12: Inicio [orig 42]",
+    57: "Lección 13: Inicio [orig 44]",
+    60: "Lección 14: Inicio [orig 47]",
+    65: "Lección 15: Inicio [orig 51]",
+    67: "Lección 16: Inicio [orig 53]",
+    71: "Lección 17: Inicio [orig 56]",
+    75: "Lección 18: Inicio [orig 60]",
+    79: "Lección 19: Inicio [orig 63]",
+    82: "Lección 20: Inicio [orig 65]",
+    85: "Lección 21: Inicio [orig 67]",
+    91: "Lección 22: Inicio [orig 72]",
+    96: "Lección 23: Inicio [orig 76]",
+    100: "Lección 24: Inicio [orig 80]",
+    106: "Lección 25: Inicio [orig 84]"
   };
 
   // ══════════════════════════════════════════════════════
