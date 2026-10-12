@@ -1,0 +1,22 @@
+{"running":"Lesson Six","pages":[
+{"src":[23],"blocks":[
+ {"t":"lesson","n":6,"title":"Lesson Six","sub":"Sixth (6th) Lesson"},
+ {"t":"part","n":"I","title":"“Invitations”"},
+ {"t":"h","text":"“Dialogue”"},
+ {"t":"olist","num":false,"items":["*Helen:* What are you going to do now?","*Danny:* I’m not sure yet. Why?","*Helen:* Because I’m going to a travel agency to make a reservation. Would you like to come with me?","*Danny:* Yes, of course. Are you going to take a trip?","*Helen:* Yes, I’ll go to Washington D.C. Have you *ever* been there?","*Danny: Yes, I’ve* already been there.","*Helen:* Oh! I see. I haven’t been downtown yet. Don’t you get excited about going with me?","*Danny:* Yes, sure. That’s a wonderful idea!"]},
+ {"t":"part","n":"II","title":"Answer: (What – Where – To Be Questions)"},
+ {"t":"write","below":true,"rowGap":"8px","items":[{"q":"What is Danny going to do now?"},{"q":"Where is Helen going?"},{"q":"Is she going to take a trip?"},{"q":"Is Danny going to Washington with Helen?"}]}
+]},
+{"src":[23,24],"blocks":[
+ {"t":"part","n":"III","title":"“Reading”"},
+ {"t":"p","text":"Washington is a beautiful city. It’s the capital of the United States of America. Many people visit this city to take pictures, for shopping, to spend vacations or to discover some places."},
+ {"t":"olist","num":false,"items":["– Helen was born in Washington, but she doesn’t know downtown, because she hasn’t been there.","– Helen has invited Danny to go there with her. In this opportunity she will show him some new places that Danny doesn’t know. He has *already* been there once, last year, but he hasn’t had enough time to visit interesting buildings, elegant shops, squares, and museums.","– Danny and Helen are happy to go there. They think it is a good chance to have a good time in that location of the U.S.A."]},
+ {"t":"h","text":"“Answer”"},
+ {"t":"write","below":true,"rowGap":"8px","items":[{"q":"Where is Washington, D.C.?"},{"q":"Why do many people like to visit that city?"},{"q":"Where was Helen born?"},{"q":"Who has Helen invited to go to Washington?"},{"q":"How many times has Danny been there?"}]}
+]},
+{"src":[24,25],"blocks":[
+ {"t":"part","n":"IV","title":"“Accepting Other Invitations”"},
+ {"t":"img","src":"img/v/l06-bubbles1.svg","h":"330px"},
+ {"t":"img","src":"img/v/l06-bubbles2.svg","h":"500px"}
+]}
+]}

@@ -1,0 +1,30 @@
+{"running":"Lesson Eight","pages":[
+{"src":[30],"blocks":[
+ {"t":"lesson","n":8,"title":"Lesson Eight","sub":"Eighth (8th) Lesson"},
+ {"t":"part","n":"I","title":"“Correspondence”"},
+ {"t":"h","text":"The “letters.”"},
+ {"t":"p","text":"In this lesson we’ll teach you the different kinds of letters and how to write them…"},
+ {"t":"side","img":"img/v/l08-envelope.svg","h":"220px","w":"370px","lines":["1. It is an *envelope*."]},
+ {"t":"side","img":"img/v/l08-stamp.svg","h":"110px","w":"370px","lines":["2. It is a *stamp*.","and…"]},
+ {"t":"side","img":"img/v/l08-back.svg","h":"210px","w":"370px","lines":["3. It is the *back of the envelope*."]}
+]},
+{"src":[31],"blocks":[
+ {"t":"p","text":"When you go to the post office, it is because you need to send a letter, buy some stamps or some postcards."},
+ {"t":"part","n":"II","title":"Now, let’s write a letter to a friend…"},
+ {"t":"img","src":"img/v/l08-friend.svg","h":"560px"},
+ {"t":"olist","num":false,"items":["– It is an informal letter and a private correspondence.","– Take a piece of paper and write a letter to a friend practicing the expressions in future tense (will – going to)."]}
+]},
+{"src":[32],"blocks":[
+ {"t":"part","n":"III","title":"Business Correspondence"},
+ {"t":"p","text":"When a company sends a letter to another one, the secretary takes the dictation in shorthand and then she types it…"},
+ {"t":"img","src":"img/v/l08-business.svg","h":"440px"},
+ {"t":"img","src":"img/v/l08-address.svg","h":"250px"}
+]},
+{"src":[33],"blocks":[
+ {"t":"part","n":"IV","title":"Write a letter to a company"},
+ {"t":"img","src":"img/v/l08-form.svg","h":"330px"},
+ {"t":"h","text":"Answer these questions:"},
+ {"t":"write","below":true,"rowGap":"6px","items":[{"q":"Are you able to write a letter?"},{"q":"Could you send a letter to a company?"},{"q":"Is it important to know how to write the address in an envelope?"},{"q":"Were you able to write a personal letter?"},{"q":"What must you do if you don’t know the meaning of a word?"},{"q":"Must you try to do your best?"}]},
+ {"t":"side","img":"img/v/l08-small.svg","h":"50px","w":"150px","lines":["*Observe:* a letter “p” … a letter"]}
+]}
+]}

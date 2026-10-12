@@ -1,0 +1,28 @@
+{"running":"Lesson Five","pages":[
+{"src":[20],"blocks":[
+ {"t":"lesson","n":5,"title":"Lesson Five","sub":"Fifth (5th) Lesson"},
+ {"t":"part","n":"I","title":"“Learning How to Say Good-bye”"},
+ {"t":"p","text":"Douglas and Louis have to go back home after spending their vacation in Boston. It’s the moment to say good-bye."},
+ {"t":"h","text":"Listen:"},
+ {"t":"olist","num":false,"items":["*Douglas:* Now we must leave Boston.","*Louis:* It’s really a *pity.*","*Douglas:* O.K. my dear friend. *See you next year* in Boston.","*Louis: Good-bye* Douglas, *bye-bye* summer, *see you soon* my friends from Boston.","*Douglas:* That’s so funny!","*Louis:* It’s my new way to say “good-bye”."]},
+ {"t":"img","src":"img/v/l05-airport.svg","h":"440px"}
+]},
+{"src":[21],"blocks":[
+ {"t":"part","n":"II","title":"Written Exercises"},
+ {"t":"inst","text":"If somebody says “good-bye” you have to answer:"},
+ {"t":"write","num":false,"rowGap":"10px","items":[{"q":"Bye …"},{"q":"See you tomorrow …"},{"q":"See you later …"},{"q":"See you on Monday …"},{"q":"See you next week …"},{"q":"Good-bye …"},{"q":"Bye bye …"}]},
+ {"t":"h","text":"“How to Respond”"},
+ {"t":"inst","text":"Oral Work:"},
+ {"t":"img","src":"img/v/l05-bubbles.svg","h":"440px"}
+]},
+{"src":[22],"blocks":[
+ {"t":"part","n":"III","title":"“In grammar class”"},
+ {"t":"h","text":"“Present Perfect”"},
+ {"t":"img","src":"img/v/l05-perfect.svg","h":"190px"},
+ {"t":"h","text":"Asking Questions"},
+ {"t":"img","src":"img/v/l05-grammar.svg","h":"250px"},
+ {"t":"h","text":"Change to interrogative form:"},
+ {"t":"ex","items":[["I have drunk coffee.","_Have you drunk coffee?_"]]},
+ {"t":"write","rowGap":"6px","items":[{"q":"You have danced in the discotheque."},{"q":"He has read a new book."},{"q":"She has played the piano."},{"q":"It has changed to red."},{"q":"We have studied the lessons."},{"q":"You have understood the explanation."},{"q":"They have talked to them."}]}
+]}
+]}
