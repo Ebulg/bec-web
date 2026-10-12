@@ -30,36 +30,36 @@
   var mobileViewQuery = window.matchMedia('(max-width: 900px)');
   var preferredView = localStorage.getItem('bec_book_view') || 'Spread';
   var currentView = mobileViewQuery.matches ? 'Single' : preferredView;
-  var TOTAL_PAGES = 110; // Total de páginas de Second Book
+  var TOTAL_PAGES = 156; // Total de páginas de Third Book
 
   var PAGE_TITLES = {
     1: "Portada (Cover)",
     2: "Página de Título",
     3: "Lección 1: Inicio [orig 1]",
-    10: "Lección 2: Inicio [orig 7]",
-    15: "Lección 3: Inicio [orig 11]",
-    21: "Lección 4: Inicio [orig 15]",
-    29: "Lección 5: Inicio [orig 20]",
-    32: "Lección 6: Inicio [orig 23]",
-    35: "Lección 7: Inicio [orig 26]",
-    40: "Lección 8: Inicio [orig 30]",
-    44: "Lección 9: Inicio [orig 34]",
-    49: "Lección 10: Inicio [orig 38]",
-    51: "Lección 11: Inicio [orig 40]",
-    54: "Lección 12: Inicio [orig 42]",
-    57: "Lección 13: Inicio [orig 44]",
-    60: "Lección 14: Inicio [orig 47]",
-    65: "Lección 15: Inicio [orig 51]",
-    67: "Lección 16: Inicio [orig 53]",
-    71: "Lección 17: Inicio [orig 56]",
-    75: "Lección 18: Inicio [orig 60]",
-    79: "Lección 19: Inicio [orig 63]",
-    82: "Lección 20: Inicio [orig 65]",
-    85: "Lección 21: Inicio [orig 67]",
-    91: "Lección 22: Inicio [orig 72]",
-    96: "Lección 23: Inicio [orig 76]",
-    100: "Lección 24: Inicio [orig 80]",
-    106: "Lección 25: Inicio [orig 84]"
+    9: "Lección 2: Inicio [orig 6]",
+    16: "Lección 3: Inicio [orig 12]",
+    22: "Lección 4: Inicio [orig 17]",
+    30: "Lección 5: Inicio [orig 24]",
+    37: "Lección 6: Inicio [orig 30]",
+    42: "Lección 7: Inicio [orig 34]",
+    48: "Lección 8: Inicio [orig 39]",
+    55: "Lección 9: Inicio [orig 44]",
+    60: "Lección 10: Inicio [orig 49]",
+    67: "Lección 11: Inicio [orig 54]",
+    73: "Lección 12: Inicio [orig 59]",
+    77: "Lección 13: Inicio [orig 63]",
+    82: "Lección 14: Inicio [orig 68]",
+    89: "Lección 15: Inicio [orig 73]",
+    95: "Lección 16: Inicio [orig 78]",
+    100: "Lección 17: Inicio [orig 83]",
+    105: "Lección 18: Inicio [orig 88]",
+    111: "Lección 19: Inicio [orig 93]",
+    118: "Lección 20: Inicio [orig 99]",
+    125: "Lección 21: Inicio [orig 105]",
+    130: "Lección 22: Inicio [orig 109]",
+    137: "Lección 23: Inicio [orig 116]",
+    144: "Lección 24: Inicio [orig 121]",
+    151: "Lección 25: Inicio [orig 127]"
   };
 
   // ══════════════════════════════════════════════════════

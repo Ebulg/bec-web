@@ -1,5 +1,6 @@
 import json, os, sys
-R='/home/user/bec-web/libro_3'
+import os
+R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def lesson(n, word, ordw, sub=None): return {"t":"lesson","n":n,"title":"Lesson "+word,"sub":sub or f"{ordw} Lesson"}
 def part(n,t): return {"t":"part","n":n,"title":t}
 def h(t): return {"t":"h","text":t}
