@@ -1,0 +1,33 @@
+from h import *
+jobs=[["l03-towers",12,[20,604,800,1094]],["l03-house",15,[40,98,800,502]],["l03-rooms",15,[50,520,735,712],[],{"keepLines":True}]]
+P=[
+pg(12, lesson(3,"Three","Third (3rd)"), part("I","Skyscrapers"),
+ p("The world’s tallest building today is Chicago’s Sear’s Tower. The building is 1.451 feet tall (433 meters). There are restaurants, shops and offices for thousands of people in this skyscraper, you can stand on the 100th floor and see for miles in any direction."),
+ p("The John Hancock Building is another skyscraper. It has offices and stores, a swimming pool and a supermarket. But it also has many floors of apartments. People can live, shop and work, all in the same building. You can live above the clouds and travel to work by elevator."),
+ p("Chicago built the world’s first skyscraper in 1885. That building was only ten stories high, but architects continued to make it a taller and taller building of steel and stone."),
+ p("Today, Chicago has many skyscrapers and office buildings downtown. Some are old, some are beautiful and some are ugly. They have space for many people and can give us wonderful view of the city. The land is low and flat, but Chicago rises into the sky."),
+ img("l03-towers","400px")),
+pg(13, h("Exercises"), inst("Write down a list of advantages and another one of disadvantages when living in a skyscraper."),
+ {"t":"write","num":False,"cols":2,"rowGap":"10px","items":[{"q":"*Advantages*","noLine":True},{"q":"*Disadvantages*","noLine":True}]+[{"q":""} for _ in range(8)]},
+ h("Answer and asking questions."),
+ {"t":"ex","items":[["Is Chicago’s Sears Tower in New York?","a: _No, it isn’t._ — Ask where. Q: _Where is it?_"]]},
+ {"t":"write","num":False,"rowGap":"6px","qw":"40px","items":[{"q":"*1.–* Is the John Hancock Building the tallest in the world?","noLine":True},{"q":"a:"},{"q":"Ask which.","noLine":True},{"q":"Q."},
+  {"q":"*2.–* Was the world’s first skyscraper built in 1843?","noLine":True},{"q":"a:"},{"q":"Ask when.","noLine":True},{"q":"Q."},
+  {"q":"*3.–* Is Chicago’s Sears Tower 400 meters tall?","noLine":True},{"q":"a:"},{"q":"Ask how tall.","noLine":True},{"q":"Q."}]}),
+pg(14, part("II","House for Sale"),
+ p("June, her friend Linda and Mr. Jones, the Real Estate agent, are standing in front of a house offered for sale."),
+ dlg("*Mr. Jones:* Well, Mrs. Johnson, this is the house I told you about. It looks good, doesn’t it?","*June:* Sure, it does. It has a beautiful garden. I can grow my carnations here. I love gardening.","*Mr. Jones:* Let me show you around. I have the keys right here … This is the living room.","*June:* The walls need painting and the floor needs some repairing. What do you think about it, Linda?","*Linda:* I agree. But look at the lamps. They’re terrific and the fire place is so nice. I think this place is worth restoring.","*June:* Yes, you’re right, Linda.","*Mr. Jones:* This is the kitchen. As you can see, it is completely furnished. There is a sink, a fridge and some cabinets and shelves.","*June:* Oh, It isn’t very big, is it?","*Mr. Jones:* No, it isn’t. But it’s comfortable. Just look at the cupboards, they’re pretty big.","*Linda:* Yes, June. Mr. Jones is right. You have to take comfort into account, too. This kitchen is more comfortable than mine.","*June:* Yes, I agree with you Linda. By the way, how many bedrooms are there, Mr. Jones?","*Mr. Jones:* There are four.","*Linda:* Oh, great. I think you should take this house, June. It’s lovely.","*June:* Yes. I guess Tom and the children will really enjoy living here. When could we sign the contract, Mr. Jones?","*Mr. Jones:* Let me see … is Tuesday morning all right?","*June:* Yes, it’s all right. Thanks for your help, Mr. Jones.","*Linda:* Good-bye.","*Mr. Jones:* Good-bye, see you on Tuesday.")),
+pg(15, img("l03-house","330px"), img("l03-rooms","160px"), h("Answer the following questions according to the dialogue:"),
+ wb("What is Mr. Jones’ job?","June loves gardening, doesn’t she?","What’s wrong with the walls?","What about the floor?", rg="6px")),
+pg(16, wb("Are the lamps beautiful?","Describe the kitchen.","How many bedrooms are there?","Who will enjoy living in the house?","When are June, her husband and Mr. Jones going to meet?","Why are they going to meet?", start=5, rg="6px"),
+ h("Write a second sentence. Follow the example."),
+ {"t":"ex","items":[["You must clean the windows.","The windows need cleaning."]]},
+ wi("You must mend that chair.","You must repair the roof.","You must wash all the curtains.","You must fix the stereo.","You must polish the floor.", rg="6px", qw="250px")),
+pg([16,17], part("III","Functions"),
+ h("1.– Expressing Agreement:"),
+ table([["I couldn’t agree more","You bet"],["You’re right","I’ll say"],["I agree","No doubt about it."],["That’s true","I’ll second that"]], head=["Formal","Informal"], w="80%"),
+ h("2.– Expressing Disagreement:"),
+ table([["I’m sorry but I don’t agree","You’re wrong"],["I disagree","You can’t be serious"],["I don’t think so","No way!"],["I wouldn’t say that","You’re out of your mind"]], head=["Formal","Informal"], w="80%"),
+ h("Composition Exercises"), inst("Describe the house of your dreams:"), lines(5)),
+]
+save("l03","Lesson Three",P,jobs)
